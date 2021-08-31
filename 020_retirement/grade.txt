@@ -1,0 +1,21 @@
+Grading at 08/31/2021:04:37:30.151890
+For commit ID d8c4cdae258287ddd17f028f49864b3328c7178f
+Grading at Tue Aug 31 00:37:29 EDT 2021
+Attempting to compile retirement.c
+Checking for struct _retire_info
+Found on line 17, column 9 
+Checking for field int months
+Found on line 19, column 3 
+Checking for field double contribution
+Found on line 20, column 3 
+Checking for field double rate_of_return
+Found on line 21, column 3 
+Checking for typedef of struct _retire_info to retire_info
+Found on line 17, column 1 
+Checking for void retirement (int startAge, double initial,  retire_info working,  retire_info retired)
+Found on line 39, column 1 
+Checking for int main(void)
+not found
+Your code does not have the right struct, fields, and/or functions.
+
+Overall Grade: F
