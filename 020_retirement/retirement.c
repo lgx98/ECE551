@@ -2,18 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-/*
-Age  27 month  3 you have $21345.00
-Age  27 month  4 you have $22425.04
-Age  27 month  5 you have $23509.14
-Age  27 month  6 you have $24597.30
-Age  27 month  7 you have $25689.54
-Age  27 month  8 you have $26785.87
-Age  27 month  9 you have $27886.32
-Age  27 month 10 you have $28990.89
-Age  27 month 11 you have $30099.61
-Age  28 month  0 you have $31212.48
-*/
 typedef struct _retire_info
 {
   int months;
@@ -48,7 +36,7 @@ void retirement(
     ;
 }
 
-int main(int argc, char const *argv[])
+int main(void)
 {
   int age = 327;
   float balance = 21345.0;
