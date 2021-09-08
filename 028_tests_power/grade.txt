@@ -1,0 +1,66 @@
+Grading at 09/08/2021:18:37:42.688744
+For commit ID da26a2c463e12d406fbb88d8635385b040513ca1
+Grading at Wed Sep  8 14:37:41 EDT 2021
+**Testing broken implementation 10 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 1000
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 0
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 1000
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+Failed on input 100, 0: expected 1, got 0
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+Failed on input 0, 0: expected 1, got 0
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 51712
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 997002000
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 8
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+Failed on input 0, 100: expected 0, got -818408495
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 3000
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+Failed on input 1000, 3: expected 1000000000, got 0
+
+**Testing correct implementation **
+-------------------------------------
+
+
+All tests were ok.
+
+
+Overall Grade: PASSED
