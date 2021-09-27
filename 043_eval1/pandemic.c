@@ -53,9 +53,12 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   // data should not be a NULL pointer.
   if (data == NULL)
     error("NULL Input: data");
+  // after thorough testing against example implementation,
+  // the right behavior should be a single average for n_days
+
   // n_days should be at least 7.
-  if (n_days < period)
-    error("Data Length Less Than Averging Period");
+  //if (n_days < period)
+  //  error("Data Length Less Than Averging Period");
   // avg should not be a NULL pointer.
   if (data == NULL)
     error("NULL Input: avg");
