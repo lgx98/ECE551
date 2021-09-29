@@ -6,10 +6,11 @@ printCountries S1_empty_line.csv
 printCountries S1_exactly_64_chars.csv
 printCountries S1_number_missing.csv
 #success
-printCountries S1_normal.csv
+printCountries population.csv
 printCountries S1_empty_country_name.csv
 printCountries S1_negative_number.csv
 printCountries S1_leading_space_before_number.csv
 printCountries S1_letters_following_number.csv
 printCountries S1_exactly_63_chars.csv
-printCountries S1_number_missing.csv
+printRunningAvg population.csv daily_small.csv
+printRunningAvg S2_population_zero.csv S2_daily_pop_zero.csv

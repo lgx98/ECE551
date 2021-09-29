@@ -63,7 +63,7 @@ country_t parseLine(char * line) {
   // The following is not supported in C99
   //if (errno_backup == EINVAL)
   //  error("No Number Found");
-  if (num == 0 && *(endptr - 1) != 0)
+  if (num == 0 && *(endptr - 1) != '0')
     error("No Number Found");
 
   ans.population = num;
