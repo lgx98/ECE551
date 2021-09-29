@@ -1,4 +1,4 @@
 #error
-parseLine S1_null_char_in_country_name.csv
+printCountries S1_null_char_in_country_name.csv
 #success
-parseLine S1_null_char_in_country_name.csv
+printCountries S1_null_char_in_country_name.csv
