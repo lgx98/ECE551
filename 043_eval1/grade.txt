@@ -1,6 +1,6 @@
-Grading at 09/29/2021:17:28:13.319176
-For commit ID 0e988b005751d7078256e5f40b1ad6cef4f3c891
-Grading at Wed Sep 29 13:28:12 EDT 2021
+Grading at 09/29/2021:17:31:07.934076
+For commit ID c8efd0cc7823477256740fe6a06e9d7796caf265
+Grading at Wed Sep 29 13:31:06 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -10,7 +10,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o pri
 Test case printCountries S1_null_char_in_country_name.csv
 Our printCountries does not consider this an error case
 +-----------------------------------------------------------------------+
-Test case printCountries S1_null_char_in_country_name.csv
+Test case printCountries S1_empty_country_name.csv
 Your file matched the expected output
 
 You have FAILED one or more of your test cases
