@@ -9,6 +9,8 @@ printRunningAvg population.csv S2_daily_pop_zero.csv
 printRunningAvg S2_population_no_country S2_daily_no_country
 printCumulative population.csv S2_daily_pop_zero.csv
 printCumulative S2_population_no_country S2_daily_no_country
+printDailyMax population.csv S2_daily_pop_zero.csv
+printDailyMax S2_population_no_country S2_daily_no_country
 #success
 printCountries population.csv
 printCountries S1_empty_country_name.csv
@@ -24,3 +26,7 @@ printCumulative population.csv daily_small.csv
 printCumulative S2_population_zero.csv S2_daily_pop_zero.csv
 printCumulative population.csv S2_daily_exactly_6_days.csv
 printCumulative population.csv S2_daily_exactly_7_days.csv
+printDailyMax population.csv daily_small.csv
+printDailyMax S2_population_zero.csv S2_daily_pop_zero.csv
+printDailyMax population.csv S2_daily_exactly_6_days.csv
+printDailyMax population.csv S2_daily_exactly_7_days.csv
