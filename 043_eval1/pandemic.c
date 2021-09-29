@@ -12,6 +12,7 @@ void error(const char * msg) {
 
 // takes a null-terminating string, parse a string and a unsigned number seperated by ','.
 country_t parseLine(char * line) {
+  //xprintf("=====\n%s", line);
   country_t ans;
   ans.name[0] = '\0';
   ans.population = 0;
@@ -28,6 +29,7 @@ country_t parseLine(char * line) {
   // Parse the country name.
   size_t i = 0;
   while (*(line + i) != ',') {
+    //printf("parsing %c\n", line[i]);
     // if the string is terminated without a ',', it is incomplete.
     if (*(line + i) == '\0')
       error("Line Incomplete, Missing ','");
