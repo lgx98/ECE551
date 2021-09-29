@@ -56,8 +56,11 @@ country_t parseLine(char * line) {
 
   // Parse the number.
   uint64_t num = strtoull(line, NULL, 10);
-  if (errno == ERANGE)
+  int errno_backup = errno;
+  if (errno_backup == ERANGE)
     error("Number Out of Range");
+  if (errno_backup == EINVAL)
+    error("No Number Found");
 
   ans.population = num;
 

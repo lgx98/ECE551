@@ -11,3 +11,4 @@ printCountries S1_negative_number.csv
 printCountries S1_leading_space_before_number.csv
 printCountries S1_letters_following_number.csv
 printCountries S1_exactly_63_chars.csv
+printCountries S1_number_missing.csv
