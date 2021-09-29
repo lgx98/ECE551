@@ -1,6 +1,6 @@
-Grading at 09/29/2021:20:19:53.088343
-For commit ID e07ce2f102eacbe4c5036c95017293d67895cd10
-Grading at Wed Sep 29 16:19:31 EDT 2021
+Grading at 09/29/2021:20:50:02.643340
+For commit ID fc4d66f083f134443ce3d86d92f78529f9502e4f
+Grading at Wed Sep 29 16:49:43 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -102,12 +102,6 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printCumulative S2_population_zero.csv S2_daily_pop_zero.csv
 Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv S2_daily_exactly_6_days.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv S2_daily_exactly_7_days.csv
-Your file matched the expected output
 
 Compiling printDailyMax
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -118,12 +112,6 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printDailyMax S2_population_zero.csv S2_daily_pop_zero.csv
 Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv S2_daily_exactly_6_days.csv
-Your file matched the expected output
-
-Grading has taken more than 20 seconds
-Skipping remaining test cases
 
 You have PASSED all of your test cases
 Keep adding test cases until you are satisfied your program is correct
