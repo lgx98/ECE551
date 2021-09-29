@@ -146,7 +146,7 @@ void printCountryWithMax(country_t * countries,
     max_cases[i] = 0;
 
   for (size_t j = 0; j < n_days; ++j) {
-    for (size_t i = 1; i < n_countries; ++i) {
+    for (size_t i = 0; i < n_countries; ++i) {
       max_cases[i] = data[i][j] > max_cases[i] ? data[i][j] : max_cases[i];
     }
   }
