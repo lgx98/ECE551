@@ -54,12 +54,16 @@ country_t parseLine(char * line) {
   // At this time, *(line + i) should be pointing at char ',', so move it number section.
   line += (i + 1);
 
+  char * endptr = NULL;
   // Parse the number.
-  uint64_t num = strtoull(line, NULL, 10);
-  int errno_backup = errno;
-  if (errno_backup == ERANGE)
+  uint64_t num = strtoull(line, &endptr, 10);
+  if (errno == ERANGE)
     error("Number Out of Range");
-  if (errno_backup == EINVAL)
+
+  // The following is not supported in C99
+  //if (errno_backup == EINVAL)
+  //  error("No Number Found");
+  if (num == 0 && *(endptr - 1) != 0)
     error("No Number Found");
 
   ans.population = num;
