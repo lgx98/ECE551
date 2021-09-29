@@ -4,6 +4,7 @@ printCountries S1_negative_number_overflow.csv
 printCountries S1_number_overflow.csv
 printCountries S1_empty_line.csv
 printCountries S1_exactly_64_chars.csv
+printCountries S1_number_missing.csv
 #success
 printCountries S1_normal.csv
 printCountries S1_empty_country_name.csv
