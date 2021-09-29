@@ -1,6 +1,6 @@
-Grading at 09/29/2021:19:44:53.202897
-For commit ID 30e538f54146a46be4b5dbd3ecca706f7a818f4b
-Grading at Wed Sep 29 15:44:35 EDT 2021
+Grading at 09/29/2021:19:52:20.649228
+For commit ID 5c7868c649b524af738c992888a34c7efebb4c10
+Grading at Wed Sep 29 15:51:59 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -43,6 +43,16 @@ Test case printCumulative population.csv S2_daily_pop_zero.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCumulative S2_population_no_country S2_daily_no_country
+Your program successfully indicated a failure case
+
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv S2_daily_pop_zero.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printDailyMax S2_population_no_country S2_daily_no_country
 Your program successfully indicated a failure case
 
 Compiling printCountries
@@ -99,7 +109,67 @@ Your file matched the expected output
 Test case printCumulative population.csv S2_daily_exactly_7_days.csv
 Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+Compiling printDailyMax
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv daily_small.csv
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Line_10_did_not_match
+Line_11_did_not_match
+Line_12_did_not_match
+Line_13_did_not_match
+Line_14_did_not_match
+Line_15_did_not_match
+Line_16_did_not_match
+Line_17_did_not_match
+Line_18_did_not_match
+Line_19_did_not_match
+Line_20_did_not_match
+Line_21_did_not_match
+Line_22_did_not_match
+Line_23_did_not_match
+Line_24_did_not_match
+Line_25_did_not_match
+Line_26_did_not_match
+Line_27_did_not_match
+Line_28_did_not_match
+Line_29_did_not_match
+Line_30_did_not_match
+Line_31_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printDailyMax S2_population_zero.csv S2_daily_pop_zero.csv
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printDailyMax population.csv S2_daily_exactly_6_days.csv
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Your file did not match the expected output
+
+Grading has taken more than 20 seconds
+Skipping remaining test cases
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
