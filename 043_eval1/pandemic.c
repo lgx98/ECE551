@@ -125,7 +125,7 @@ void printCountryWithMax(country_t * countries,
   if (n_countries == 0)
     return;
 
-  for (size_t j = 0; j < n_days, ++j) {
+  for (size_t j = 0; j < n_days; ++j) {
     size_t max_i = 0;
     bool tie = 0;
     for (size_t i = 1; i < n_countries; ++i) {
