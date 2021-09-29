@@ -1,6 +1,6 @@
-Grading at 09/29/2021:19:27:52.189131
-For commit ID 7dc9c0736b3ca3ff7eea34c8e9c294dd30ba5003
-Grading at Wed Sep 29 15:27:42 EDT 2021
+Grading at 09/29/2021:19:33:53.165813
+For commit ID 51eef2d0fe09ae31a6c05dfe130b1dc302d7a921
+Grading at Wed Sep 29 15:33:41 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -52,8 +52,18 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printRunningAvg S2_population_zero.csv S2_daily_pop_zero.csv
 Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv S2_daily_pop_zero.csv
+Line_1_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv S2_daily_exactly_6_days.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv S2_daily_exactly_7_days.csv
+Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
