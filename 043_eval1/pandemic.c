@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// macro to enable printf debugging
 //#define PRTDBG 1
 
 // print the error message to stderr, then exit with failure.
@@ -15,8 +16,11 @@ void error(const char * msg) {
 // takes a null-terminating string, parse a string and a unsigned number seperated by ','.
 country_t parseLine(char * line) {
 #ifdef PRTDBG
-  printf("=====\n%s", line);
+  for (size_t i = 0; i < 80; ++i)
+    putchar('=');
+  printf("\nTesting Following Line:\n%s", line);
 #endif
+
   country_t ans;
   ans.name[0] = '\0';
   ans.population = 0;
@@ -34,9 +38,10 @@ country_t parseLine(char * line) {
   size_t i = 0;
   while (*(line + i) != ',') {
 #ifdef PRTDBG
-    printf("%02ld: %c\n", i, line[i]);
+    printf("char@%02ld: %c\n", i, line[i]);
 #endif
-    // if the string is terminated without a ',', it is incomplete.
+
+    // if the string is terminating without a ',', it is incomplete.
     if (*(line + i) == '\0')
       error("Line Incomplete, Missing ','");
     // if the name has 64 chars already, no space for trailing '\0'.
@@ -50,6 +55,7 @@ country_t parseLine(char * line) {
   //if (i == 1)
   //  error("Empty Country Name");
 
+  // Append null char to ans.name.
   ans.name[i] = '\0';
   // At this time, *(line + i) should be pointing at char ',', so move it number section.
   line += (i + 1);
@@ -60,9 +66,11 @@ country_t parseLine(char * line) {
   if (errno == ERANGE)
     error("Number Out of Range");
 
-  // The following is not supported in C99
+  // The following errno will not be set by trtoull in C99
   //if (errno_backup == EINVAL)
   //  error("No Number Found");
+
+  // So if the result is 0, but last valid char is not '0', the number is missing.
   if (num == 0 && *(endptr - 1) != '0')
     error("No Number Found");
 
@@ -140,17 +148,20 @@ void printCountryWithMax(country_t * countries,
   if (n_countries == 0)
     return;
 
+  // new feature in C99
   unsigned max_cases[n_countries];
-
+  // Initialize the array with 0.
   for (size_t i = 0; i < n_countries; ++i)
     max_cases[i] = 0;
 
+  // Find the most daily cases for every country.
   for (size_t j = 0; j < n_days; ++j) {
     for (size_t i = 0; i < n_countries; ++i) {
       max_cases[i] = data[i][j] > max_cases[i] ? data[i][j] : max_cases[i];
     }
   }
 
+  // Find the country with most cases.
   size_t max_i = 0;
   bool tie = 0;
   for (size_t i = 1; i < n_countries; ++i) {
@@ -161,6 +172,7 @@ void printCountryWithMax(country_t * countries,
       tie = 0;
     }
   }
+
   if (tie)
     printf("There is a tie between at least two countries\n");
   else
