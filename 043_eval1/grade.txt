@@ -1,6 +1,6 @@
-Grading at 09/29/2021:19:35:46.738315
-For commit ID 28768eaac7fd2978e6872d2993948fd990237377
-Grading at Wed Sep 29 15:35:34 EDT 2021
+Grading at 09/29/2021:19:44:53.202897
+For commit ID 30e538f54146a46be4b5dbd3ecca706f7a818f4b
+Grading at Wed Sep 29 15:44:35 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -30,6 +30,19 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv S2_daily_pop_zero.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printRunningAvg S2_population_no_country S2_daily_no_country
+Your program successfully indicated a failure case
+
+Compiling printCumulative
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv S2_daily_pop_zero.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative S2_population_no_country S2_daily_no_country
 Your program successfully indicated a failure case
 
 Compiling printCountries
@@ -68,6 +81,22 @@ Test case printRunningAvg population.csv S2_daily_exactly_6_days.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv S2_daily_exactly_7_days.csv
+Your file matched the expected output
+
+Compiling printCumulative
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCumulative S2_population_zero.csv S2_daily_pop_zero.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv S2_daily_exactly_6_days.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv S2_daily_exactly_7_days.csv
 Your file matched the expected output
 
 You have PASSED all of your test cases
