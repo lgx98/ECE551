@@ -12,7 +12,7 @@ void error(const char * msg) {
 
 // takes a null-terminating string, parse a string and a unsigned number seperated by ','.
 country_t parseLine(char * line) {
-  //printf("=====\n%s", line);
+  //  printf("=====\n%s", line);
   country_t ans;
   ans.name[0] = '\0';
   ans.population = 0;
