@@ -61,7 +61,7 @@ kvarray_t * readKVs(const char * fname) {
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
     perror("Could not open file");
-    printf("FileName: %s\n", fname);
+    fprintf(stderr, "FileName: %s\n", fname);
     exit(EXIT_FAILURE);
   }
 
@@ -79,7 +79,7 @@ kvarray_t * readKVs(const char * fname) {
   // Close file
   if (fclose(f) != 0) {
     perror("Could not close file");
-    printf("FileName: %s\n", fname);
+    fprintf(stderr, "FileName: %s\n", fname);
     exit(EXIT_FAILURE);
   }
 
