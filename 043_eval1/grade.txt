@@ -1,119 +1,172 @@
-Grading at 09/29/2021:20:50:02.643340
+Grading at 10/15/2021:19:12:58.457150
 For commit ID fc4d66f083f134443ce3d86d92f78529f9502e4f
-Grading at Wed Sep 29 16:49:43 EDT 2021
-Running your test cases
+Grading at Fri Oct 15 15:12:41 EDT 2021
 
-Compiling printCountries
+Checking that your code compiles
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
-+-----------------------------------------------------------------------+
-Test case printCountries S1_null_char_in_country_name.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries S1_negative_number_overflow.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries S1_number_overflow.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries S1_empty_line.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries S1_exactly_64_chars.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCountries S1_number_missing.csv
-Your program successfully indicated a failure case
-
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv S2_daily_pop_zero.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg S2_population_no_country S2_daily_no_country
-Your program successfully indicated a failure case
-
-Compiling printCumulative
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv S2_daily_pop_zero.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative S2_population_no_country S2_daily_no_country
-Your program successfully indicated a failure case
-
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
+
+=========================================================================
+Step 1
+
 +-----------------------------------------------------------------------+
-Test case printDailyMax population.csv S2_daily_pop_zero.csv
+Test case 1
 Your program successfully indicated a failure case
+                                                         [3/3]
 +-----------------------------------------------------------------------+
-Test case printDailyMax S2_population_no_country S2_daily_no_country
+Test case 2
 Your program successfully indicated a failure case
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 3
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 4
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 5
+Your file matched the expected output
+                                                         [10/10]
++-----------------------------------------------------------------------+
+Test case 6
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 7
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 8
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 9
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 10
+Your file matched the expected output
+                                                         [1/1]
 
-Compiling printCountries
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
-+-----------------------------------------------------------------------+
-Test case printCountries population.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries S1_empty_country_name.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries S1_negative_number.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries S1_leading_space_before_number.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries S1_letters_following_number.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printCountries S1_exactly_63_chars.csv
-Your file matched the expected output
+Step 1 total                                             [30/30]
 
-Compiling printRunningAvg
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_small.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg S2_population_zero.csv S2_daily_pop_zero.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv S2_daily_exactly_6_days.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv S2_daily_exactly_7_days.csv
-Your file matched the expected output
+=========================================================================
+Step 2
 
-Compiling printCumulative
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
 +-----------------------------------------------------------------------+
-Test case printCumulative population.csv daily_small.csv
+Test case 11
 Your file matched the expected output
+                                                         [5/5]
 +-----------------------------------------------------------------------+
-Test case printCumulative S2_population_zero.csv S2_daily_pop_zero.csv
+Test case 12
 Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 13
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 14
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 15
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 16
+Your file matched the expected output
+                                                         [3/3]
 
-Compiling printDailyMax
-rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
-gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printDailyMax.o -o printDailyMax
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv daily_small.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printDailyMax S2_population_zero.csv S2_daily_pop_zero.csv
-Your file matched the expected output
+Step 2 total                                             [20/20]
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+=========================================================================
+Step 3
 
-Overall Grade: NO GRADE YET
++-----------------------------------------------------------------------+
+Test case 17
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 18
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 19
+Line_1_did_not_match
+Your file did not match the expected output
+                                                         [0/2]
++-----------------------------------------------------------------------+
+Test case 20
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 21
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 22
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 23
+Your file matched the expected output
+                                                         [2/2]
+
+Step 3 total                                             [18/20]
+
+=========================================================================
+Step 4
+
++-----------------------------------------------------------------------+
+Test case 24
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 25
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 26
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 27
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 28
+Your file matched the expected output
+                                                         [4/4]
+
+Step 4 total                                             [20/20]
+
+=========================================================================
+Code quality
+
+Abstration:    Excellent
+Naming:        Excellent
+Formatting:    Excellent
+Documentation: Good
+Comments from your grader:
+Great job! Overall your code is very readable and formatted well. However, I 
+would like to see a comment before each function that explains what it does. 
+Good job abstracting out your error printing, but in the future you may 
+consider other opportunities for abstraction as well. Your variable names are 
+good for the most part, but you could come up with more informative names for 
+the function output rather than "ans" and you could consider more informative 
+names for your looping variables. Finally, your formatting is great, but you 
+may want to include opening and closing braces for 1 line if statements to 
+improve readability Generally you should follow whatever your future 
+organization's code formatting rules are.
+
+Quality total                                            [9.6/10]
+
+=========================================================================
+
+Overall Grade: 98
