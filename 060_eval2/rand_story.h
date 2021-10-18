@@ -4,11 +4,11 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "provided.h"
 
 // any functions you want your main to use
-
 void exit_error(char * message);
 
 // Basic operations on category and catarray

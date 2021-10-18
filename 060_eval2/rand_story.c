@@ -1,7 +1,10 @@
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+
 #include "rand_story.h"
 
-#include <string.h>
-
+#include <stdio.h>
 /* This function prints error message and exit with failure.
  */
 void exit_error(char * message) {
@@ -34,6 +37,7 @@ void category_free(category_t * cat) {
     free(cat->words[i]);
   free(cat->words);
   free(cat->name);
+  return;
 }
 
 /* This function appends a word at the end of a category.
@@ -99,6 +103,7 @@ void catarray_delete(catarray_t * cats) {
     category_free(&(cats->arr[i]));
   free(cats->arr);
   free(cats);
+  return;
 }
 
 /* This function expands the catarray at the end by one element.
@@ -110,6 +115,7 @@ void catarray_expand_end(catarray_t * cats) {
 
   cats->n++;
   cats->arr = realloc(cats->arr, cats->n * sizeof(*cats->arr));
+  return;
 }
 
 /* This function finds a category in the catarray by its name, and returns a
@@ -171,6 +177,7 @@ void token_delete(token_t * token) {
   if (token->type == CATEGORY)
     free(token->value.name);
   free(token);
+  return;
 }
 
 /* This function constructs a new empty tokenArr struct, and returns a pointer
@@ -191,6 +198,7 @@ void tokenArr_delete(tokenArr_t * arr) {
     token_delete(arr->tokens[i]);
   free(arr->tokens);
   free(arr);
+  return;
 }
 
 /* This function appends a token at the end of a tokenArr, resize it if needed.
@@ -209,7 +217,6 @@ void tokenArr_push_back(tokenArr_t * arr, token_t * token) {
   // Insert the token.
   arr->tokens[arr->n_tokens] = token;
   arr->n_tokens++;
-
   return;
 }
 
@@ -231,6 +238,7 @@ void close_file(FILE * f) {
     perror("Could not close file");
     exit(EXIT_FAILURE);
   }
+  return;
 }
 
 /* This function parses a category file and returns the result.
@@ -243,8 +251,11 @@ catarray_t * parseCat(FILE * f) {
   ssize_t nread;
   while ((nread = getline(&line, &len, f)) != -1) {
     char * ptr_delim = strchr(line, ':');
-    if (ptr_delim == NULL)
-      exit_error("Delimeter Not Found");
+    if (ptr_delim == NULL) {
+      char * msg = NULL;
+      asprintf(&msg, "Delimeter Not Found in Line:\n%s", line);
+      exit_error(msg);
+    }
     catarray_add_pair(cats,
                       strndup(line, ptr_delim - line),
                       strndup(ptr_delim + 1, line + nread - ptr_delim - 2));
@@ -291,8 +302,11 @@ tokenArr_t * parseStory(FILE * f) {
       }
 
       ptr_right = strchr(ptr_left + 1, '_');
-      if (ptr_right == NULL)
-        exit_error("Unmatched '_' in a Line");
+      if (ptr_right == NULL) {
+        char * msg = NULL;
+        asprintf(&msg, "Unmatched '_' in Line:\n%s", line);
+        exit_error(msg);
+      }
 
       // Parse the blank.
       char * ptr_after_number = NULL;
@@ -343,10 +357,16 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
         if (!hasOption(storyOptions, ALWAYS_CAT)) {
           category_t * cat = catarray_find(cats, token->value.name);
           // Sanity check.
-          if (cat == NULL)
-            exit_error("Category Not Found");
-          if (cat->n_words == 0)
-            exit_error("Words Used Up in Category");
+          if (cat == NULL) {
+            char * msg = NULL;
+            asprintf(&msg, "Category \"%s\" not Found", token->value.name);
+            exit_error(msg);
+          }
+          if (cat->n_words == 0) {
+            char * msg = NULL;
+            asprintf(&msg, "Words Used up in Category \"%s\"", token->value.name);
+            exit_error(msg);
+          }
 
           char * word = strdup(chooseWord(token->value.name, cats));
           token->type = STRING;
@@ -367,8 +387,14 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
       case NUMBER:
         if (!hasOption(storyOptions, ALWAYS_CAT)) {
           // Sanity check.
-          if (token->value.num > prev_tokens->n_tokens)
-            exit_error("Not Enough Previous Words");
+          if (token->value.num > prev_tokens->n_tokens) {
+            char * msg = NULL;
+            asprintf(&msg,
+                     "Index(%zu) Larger Than Number of Previous Blanks(%zu)",
+                     token->value.num,
+                     prev_tokens->n_tokens);
+            exit_error(msg);
+          }
 
           token_t * prev_token =
               prev_tokens->tokens[prev_tokens->n_tokens - token->value.num];
