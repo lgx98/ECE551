@@ -1,3 +1,4 @@
 #error
-story-step4 words.txt story2.txt -n
+story-step1 words.txt story_unmatched.txt
+story-step3 words.txt story_word_used_up.txt
 #success
