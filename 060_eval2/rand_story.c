@@ -55,7 +55,6 @@ void category_erase(category_t * cat, char * word) {
   // Sanity check.
   if (cat == NULL || word == NULL)
     return;
-
   // Find the word.
   size_t i = 0;
   while ((i < cat->n_words) && (strcmp(cat->words[i], word) != 0))
@@ -66,7 +65,7 @@ void category_erase(category_t * cat, char * word) {
     return;
 
   // Delete the word and move the rest forward.
-  free(cat->words[i - 1]);
+  free(cat->words[i]);
   for (; i < (cat->n_words - 1); ++i)
     cat->words[i] = cat->words[i + 1];
 
