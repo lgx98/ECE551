@@ -1,22 +1,19 @@
-Grading at 10/18/2021:20:05:04.529204
-For commit ID 31b33edd9c70065f12282638abf7b2ddadc42fdb
-Grading at Mon Oct 18 16:05:03 EDT 2021
+Grading at 10/18/2021:20:14:47.383406
+For commit ID 84b593be16df7d9dabfc7075e75f46886caafac0
+Grading at Mon Oct 18 16:14:46 EDT 2021
 Running your test cases
 
-Compiling story-step3
+Compiling story-step4
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
-gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
-gcc -o story-step3 story-step3.o rand_story.o provided.o
-rm story-step3.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step4.c
+gcc -o story-step4 story-step4.o rand_story.o provided.o
+rm story-step4.o
 +-----------------------------------------------------------------------+
-Test case story-step3 words_naughty_integers.txt story_naughty_integers.txt
-Our story-step3 does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case story-step3 words_naughty_integers.txt story_naughty_integers.txt
-Your file matched the expected output
+Test case story-step4 words.txt story2.txt -n
+Your program successfully indicated a failure case
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
