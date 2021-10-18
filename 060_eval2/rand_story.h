@@ -7,26 +7,44 @@
 
 #include "provided.h"
 
-//any functions you want your main to use
+// any functions you want your main to use
+
+void exit_error(char *message);
 
 // Basic operations on category and catarray
-void category_erase(category_t * cat, char * word);
+void category_init(category_t *cat, char *name);
 
-category_t * catarray_find(catarray_t * cat, const char * name);
+void category_free(category_t *cat);
+
+void category_push_back(category_t *cat, char *word);
+
+void category_erase(category_t *cat, char *word);
+
+catarray_t *catarray_new(void);
+
+void catarray_delete(catarray_t *cats);
+
+void catarray_expand_end(catarray_t *cats);
+
+category_t *catarray_find(catarray_t *cats, char *name);
+
+void catarray_add_pair(catarray_t *cats, char *name, char *word);
 
 // Definition and basic operations on token
 // Inspired by the definition of Lua TValue.
-//(I learned the code even before coming to Durham, so no academic misconduct.)
+//(I learned this even before coming to Durham, so no academic misconduct.)
 typedef enum _tokenType_t {
-  STRING,    // plain string
-  CATEGORY,  // category name of a blank
-  NUMBER     // an integer that decides which previous word should be used
+  STRING,   // plain string
+  CATEGORY, // category name of a blank
+  NUMBER,   // an integer that decides which previous word should be used
+  POINTER   // pointer to another token
 } tokenType_t;
 
 typedef union _tokenValue_t {
-  char * str;
-  char * name;
+  char *str;
+  char *name;
   size_t num;
+  void *token;
 } tokenValue_t;
 
 typedef struct _token_t {
@@ -34,30 +52,58 @@ typedef struct _token_t {
   tokenValue_t value;
 } token_t;
 
-token_t * token_new(const tokenType_t type);
+token_t *token_new(tokenType_t type);
 
-void token_delete(token_t * token);
+void token_delete(token_t *token);
 
 // Definition and basic operations on token array
 typedef struct _tokenArr_t {
-  token_t ** tokens;
+  token_t **tokens;
   size_t n_tokens;
-  size_t n_avail;  // actual size, grows by 2 each time.
+  size_t n_avail; // actual size, grows by 2 each time.
 } tokenArr_t;
 
-tokenArr_t * tokenArr_new(void);
+tokenArr_t *tokenArr_new(void);
 
-void tokenArr_delete(tokenArr_t * arr);
+void tokenArr_delete(tokenArr_t *arr);
 
-void tokenArr_push_back(tokenArr_t * arr, token_t * token);
+void tokenArr_push_back(tokenArr_t *arr, token_t *token);
 
 // Sub-tasks needed in the 4 steps
-catarray_t * parseCat(FILE * f);
+FILE *open_file(char *filename, char *mode);
 
-void parseLine(const char * line, tokenArr_t * arr);
+void close_file(FILE *file);
 
-typedef enum _stroyOption_t { ALWAYS_CAT = 0x01, NO_REUSE = 0x02 } storyOption_t;
+catarray_t *parseCat(FILE *f);
 
-void tellStory(FILE * in, FILE * out, catarray_t * cats, uint8_t storyOptions);
+tokenArr_t *parseStory(FILE *f);
 
+typedef enum _stroyOption_t {
+  ALWAYS_CAT = 0x01,
+  NO_REUSE = 0x02
+} storyOption_t;
+
+void makeStory(tokenArr_t *story, catarray_t *cats, uint storyOptions);
+
+void writeStory(FILE *f, tokenArr_t *story);
+
+/* Some designs of flexible word choosing
+  a. Callback function with void * argument.
+  * int tellStory(FILE *cat, FILE *story, FILE *out,
+  *   const char *(*chooseWord)(char *category, catarray_t *cats, void *arg),
+  *   void *arg);
+  b. Keep track of previous blanks in static variables.
+  * const char *chooseWord_numbers(char *category, catarray_t *cats) {
+  *   static tokenArr_t *prev_tokens = tokenArr_new();
+  *   if (cats == NULL) { // Using NULL as reset signal
+  *     tokenArr_delete(prev_tokens);
+  *     return NULL;
+  *   }
+  *   // Other Code
+  * }
+->c. Let users stitch up their own code with whatever they want.
+  * tokenArr_t *tokens = parseStory(story);
+  * // manipulating tokens
+  * void writeStory(stdout, tokens);
+ */
 #endif
