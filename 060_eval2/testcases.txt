@@ -1,5 +1,5 @@
 #success
-story-step1 test/story.txt
-story-step2 test/words.txt
-story-step3 test/words.txt test/story2.txt
-story-step4 -n test/words.txt test/story2.txt
+#story-step1 test/story.txt
+#story-step2 test/words.txt
+#story-step3 test/words.txt test/story2.txt
+#story-step4 -n test/words.txt test/story2.txt
