@@ -295,18 +295,19 @@ tokenArr_t * parseStory(FILE * f) {
         exit_error("Unmatched '_' in a Line");
 
       // Parse the blank.
-      char * blank = strndup(ptr_left + 1, ptr_right - ptr_left - 1);
-      if (atoi(blank) > 0) {
+      char * ptr_after_number = NULL;
+      size_t num = strtoull(ptr_left + 1, &ptr_after_number, 10);
+
+      if ((num != 0) && (ptr_after_number == ptr_right)) {
         // Valid integer.
         token_t * token = token_new(NUMBER);
-        token->value.num = (size_t)atoi(blank);
-        free(blank);
+        token->value.num = num;
         tokenArr_push_back(tokens, token);
       }
       else {
         // A category name.
         token_t * token = token_new(CATEGORY);
-        token->value.name = blank;
+        token->value.name = strndup(ptr_left + 1, ptr_right - ptr_left - 1);
         tokenArr_push_back(tokens, token);
       }
       ptr = ptr_right + 1;
