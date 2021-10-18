@@ -12,7 +12,7 @@ int main(int argc, char ** argv) {
   tokenArr_t * story = parseStory(f_story);
   close_file(f_story);
 
-  makeStory(story, cats, 0);
+  makeStory(story, cats, DEFAULT);
   writeStory(stdout, story);
   tokenArr_delete(story);
   catarray_delete(cats);

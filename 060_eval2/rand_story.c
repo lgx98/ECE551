@@ -55,6 +55,7 @@ void category_erase(category_t * cat, char * word) {
   // Sanity check.
   if (cat == NULL || word == NULL)
     return;
+
   // Find the word.
   size_t i = 0;
   while ((i < cat->n_words) && (strcmp(cat->words[i], word) != 0))
@@ -71,6 +72,7 @@ void category_erase(category_t * cat, char * word) {
 
   // Resize the pointer array.
   (cat->n_words)--;
+  // No need to shrink the array.
   // cat->words = realloc(cat->words, cat->n_words * sizeof(cat->words));
 
   return;
@@ -130,6 +132,8 @@ category_t * catarray_find(catarray_t * cats, char * name) {
   return &(cats->arr[i]);
 }
 
+/* This function adds a name-word pair to the catarray.
+ */
 void catarray_add_pair(catarray_t * cats, char * name, char * word) {
   // Sanity check.
   if (cats == NULL || name == NULL || word == NULL)
@@ -257,21 +261,29 @@ tokenArr_t * parseStory(FILE * f) {
   char * line = NULL;
   size_t len = 0;
   ssize_t nread;
+  /* ptr points to the first unparsed char;
+   * ptr_left and prt_right points to the left and right underlines of
+   * the first unparsed blank.
+   * parsed _text_, string _next blank_ ... \n\0
+   *              ^        ^          ^
+   *             ptr   ptr_left   ptr_right
+   */
   while ((nread = getline(&line, &len, f)) != -1) {
     char * ptr = line;
     while (*ptr != '\0') {
       char * ptr_left;
       char * ptr_right;
+      ptr_left = strchr(ptr, '_');
 
-      // Only a string left.
-      if ((ptr_left = strchr(ptr, '_')) == NULL) {
+      // Only a string left in the line.
+      if (ptr_left == NULL) {
         token_t * token = token_new(STRING);
         token->value.str = strdup(ptr);
         tokenArr_push_back(tokens, token);
         break;
       }
 
-      // Parse the string before the blank.
+      // Parse the string before the blank, if it exists.
       if (ptr_left > ptr) {
         token_t * token = token_new(STRING);
         token->value.str = strndup(ptr, ptr_left - ptr);
@@ -304,22 +316,30 @@ tokenArr_t * parseStory(FILE * f) {
   return tokens;
 }
 
+/* This function wraps around bitwise AND, making it more readable.
+ */
+int hasOption(uint options, storyOption_t interested_option) {
+  return (options & interested_option) != 0;
+}
+
 /* This function takes the parsed story and fill in the blanks in place.
  */
 void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
   // Sanity check.
   if (story == NULL)
     return;
+  if ((!hasOption(storyOptions, ALWAYS_CAT)) && (cats == NULL))
+    return;
 
   tokenArr_t * prev_tokens = NULL;
-  if (!(storyOptions & ALWAYS_CAT))
+  if (!hasOption(storyOptions, ALWAYS_CAT))
     prev_tokens = tokenArr_new();
 
   for (size_t i = 0; i < story->n_tokens; ++i) {
     token_t * token = story->tokens[i];
     switch (token->type) {
       case CATEGORY:
-        if (!(storyOptions & ALWAYS_CAT)) {
+        if (!hasOption(storyOptions, ALWAYS_CAT)) {
           category_t * cat = catarray_find(cats, token->value.name);
           // Sanity check.
           if (cat == NULL)
@@ -331,7 +351,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
           token->type = STRING;
           free(token->value.name);
           token->value.str = word;
-          if (storyOptions & NO_REUSE)
+          if (hasOption(storyOptions, NO_REUSE))
             category_erase(cat, word);
           tokenArr_push_back(prev_tokens, token);
         }
@@ -344,7 +364,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
         break;
 
       case NUMBER:
-        if (!(storyOptions & ALWAYS_CAT)) {
+        if (!hasOption(storyOptions, ALWAYS_CAT)) {
           // Sanity check.
           if (token->value.num > prev_tokens->n_tokens)
             exit_error("Not Enough Previous Words");
@@ -371,7 +391,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
   }
   // prev_tokens->tokens[i] are pointers to tokens in story->tokens[i]
   // so they are not freed at this time.
-  if (!(storyOptions & ALWAYS_CAT)) {
+  if (!hasOption(storyOptions, ALWAYS_CAT)) {
     free(prev_tokens->tokens);
     free(prev_tokens);
   }
