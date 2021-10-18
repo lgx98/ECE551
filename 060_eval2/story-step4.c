@@ -13,7 +13,7 @@ int main(int argc, char ** argv) {
     file_story = argv[2];
   }
   else if (argc == 4) {
-    if (strcmp(argv[1], "-n") != 0) {
+    if (strcmp(argv[1], "-n") == 0) {
       file_cat = argv[2];
       file_story = argv[3];
       storyOpt |= NO_REUSE;
