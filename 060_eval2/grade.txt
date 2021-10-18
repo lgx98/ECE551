@@ -1,6 +1,6 @@
-Grading at 10/18/2021:18:44:05.014351
-For commit ID 462370ed7103d002f456e0fad8af0dd9470f6ac9
-Grading at Mon Oct 18 14:44:04 EDT 2021
+Grading at 10/18/2021:18:46:25.970018
+For commit ID 8fea4ba0b20fd483d899639d77c7834e77c16c0c
+Grading at Mon Oct 18 14:46:24 EDT 2021
 Running your test cases
 
 Compiling story-step3
@@ -11,9 +11,10 @@ gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
 +-----------------------------------------------------------------------+
 Test case story-step3 words_naughty_integers.txt story_naughty_integers.txt
-Your file matched the expected output
+Line_1_did_not_match
+Your file did not match the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
