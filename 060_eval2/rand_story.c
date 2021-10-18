@@ -144,6 +144,7 @@ void catarray_add_pair(catarray_t * cats, char * name, char * word) {
     category_push_back(cat, word);
   }
   else {
+    free(name);
     category_push_back(cat, word);
   }
   return;
@@ -161,8 +162,9 @@ token_t * token_new(tokenType_t type) {
 /* This function destructs a token struct.
  */
 void token_delete(token_t * token) {
-  if (token->type == STRING)
+  if (token->type == STRING) {
     free(token->value.str);
+  }
   if (token->type == CATEGORY)
     free(token->value.name);
   free(token);
@@ -257,7 +259,6 @@ tokenArr_t * parseStory(FILE * f) {
   size_t len = 0;
   ssize_t nread;
   while ((nread = getline(&line, &len, f)) != -1) {
-    //printf("Line:[%s]\n", line);  //###
     char * ptr = line;
     while (*ptr != '\0') {
       char * ptr_left;
@@ -272,7 +273,7 @@ tokenArr_t * parseStory(FILE * f) {
       }
 
       // Parse the string before the blank.
-      if (ptr_left > (ptr + 1)) {
+      if (ptr_left > ptr) {
         token_t * token = token_new(STRING);
         token->value.str = strndup(ptr, ptr_left - ptr);
         tokenArr_push_back(tokens, token);
@@ -312,14 +313,14 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
     return;
 
   tokenArr_t * prev_tokens = NULL;
-  if (storyOptions & NO_REUSE)
+  if (!(storyOptions & ALWAYS_CAT))
     prev_tokens = tokenArr_new();
 
   for (size_t i = 0; i < story->n_tokens; ++i) {
     token_t * token = story->tokens[i];
     switch (token->type) {
       case CATEGORY:
-        if (!(storyOptions | ALWAYS_CAT)) {
+        if (!(storyOptions & ALWAYS_CAT)) {
           category_t * cat = catarray_find(cats, token->value.name);
           // Sanity check.
           if (cat == NULL)
@@ -327,7 +328,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
           if (cat->n_words == 0)
             exit_error("Words Used Up in Category");
 
-          char * word = (char *)chooseWord(token->value.name, cats);
+          char * word = strdup(chooseWord(token->value.name, cats));
           token->type = STRING;
           free(token->value.name);
           token->value.str = word;
@@ -344,7 +345,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
         break;
 
       case NUMBER:
-        if (!(storyOptions | ALWAYS_CAT)) {
+        if (!(storyOptions & ALWAYS_CAT)) {
           // Sanity check.
           if (token->value.num > prev_tokens->n_tokens)
             exit_error("Not Enough Previous Words");
@@ -371,7 +372,7 @@ void makeStory(tokenArr_t * story, catarray_t * cats, uint storyOptions) {
   }
   // prev_tokens->tokens[i] are pointers to tokens in story->tokens[i]
   // so they are not freed at this time.
-  if (storyOptions & NO_REUSE) {
+  if (!(storyOptions & ALWAYS_CAT)) {
     free(prev_tokens->tokens);
     free(prev_tokens);
   }
