@@ -1,4 +1,3 @@
 #error
-story-step3 words_naughty_integers.txt story_naughty_integers.txt
+story-step4 words.txt story2.txt -n
 #success
-story-step3 words_naughty_integers.txt story_naughty_integers.txt
