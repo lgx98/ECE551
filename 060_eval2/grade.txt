@@ -1,6 +1,6 @@
-Grading at 10/18/2021:19:02:30.474213
-For commit ID 2e773721760a1ff58732589449a9e06e8ab35076
-Grading at Mon Oct 18 15:02:29 EDT 2021
+Grading at 10/18/2021:19:04:22.061485
+For commit ID 6640250f647568cce5cc3c51ca636cbfe032d555
+Grading at Mon Oct 18 15:04:20 EDT 2021
 Running your test cases
 
 Compiling story-step3
@@ -9,6 +9,15 @@ gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
 gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
 gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
++-----------------------------------------------------------------------+
+Test case story-step3 words_naughty_integers.txt story_naughty_integers.txt
+cat
+zero
+cat
+zero
+zero
+cat
+Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case story-step3 words_naughty_integers.txt story_naughty_integers.txt
 Line_5_did_not_match
