@@ -1,4 +1,5 @@
 #error
 story-step1 words.txt story_unmatched.txt
-story-step3 words.txt story_word_used_up.txt
+story-step3 words.txt story_prev_out_of_range.txt
+story-step4 -n words.txt story_word_used_up.txt
 #success
