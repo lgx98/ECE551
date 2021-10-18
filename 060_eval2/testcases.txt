@@ -1,0 +1,5 @@
+#success
+story-step1 story.txt
+story-step2 words.txt
+story-step3 words.txt story2.txt
+story-step4 -n words.txt story2.txt
