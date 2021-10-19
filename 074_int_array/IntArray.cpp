@@ -1,37 +1,72 @@
 #include "IntArray.h"
+
 #include <assert.h>
+
 #include <ostream>
 
-IntArray::IntArray() {
-
-}
-IntArray::IntArray(int n) {
-
+IntArray::IntArray() : data(NULL), numElements(0) {
 }
 
-IntArray::IntArray(const IntArray & rhs)  {
-
+IntArray::IntArray(int n) : data(new int[n]()), numElements(n) {
 }
+
+IntArray::IntArray(const IntArray & rhs) :
+    data(new int[rhs.numElements]()),
+    numElements(rhs.numElements) {
+  for (ssize_t i = 0; i < numElements; ++i)
+    data[i] = rhs.data[i];
+}
+
 IntArray::~IntArray() {
-
+  delete[] data;
 }
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
+  if (this != &rhs) {
+    int * tempArray = new int[rhs.numElements];
+    for (ssize_t i = 0; i < numElements; ++i)
+      tempArray[i] = rhs.data[i];
+    delete[] data;
+    numElements = rhs.numElements;
+    data = tempArray;
+  }
+  return *this;
 }
+
 const int & IntArray::operator[](int index) const {
+  assert((0 <= index) && (index < numElements));
+  return data[index];
 }
+
 int & IntArray::operator[](int index) {
+  assert((0 <= index) && (index < numElements));
+  return data[index];
 }
 
 int IntArray::size() const {
+  return numElements;
 }
 
 bool IntArray::operator==(const IntArray & rhs) const {
+  if (numElements != rhs.numElements)
+    return false;
+  for (int i = 0; i < numElements; i++)
+    if (data[i] != rhs.data[i])
+      return false;
+  return true;
 }
 
 bool IntArray::operator!=(const IntArray & rhs) const {
+  return !(*this == rhs);
 }
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
-
+  s << "{";
+  for (ssize_t i = 0; i < rhs.size(); ++i) {
+    s << rhs[i];
+    if (i != rhs.size() - 1)
+      s << ", ";
+  }
+  s << "}";
+  return s;
 }
