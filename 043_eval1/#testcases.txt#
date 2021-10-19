@@ -1,0 +1,28 @@
+#error
+printCountries S1_null_char_in_country_name.csv
+printCountries S1_negative_number_overflow.csv
+printCountries S1_number_overflow.csv
+printCountries S1_empty_line.csv
+printCountries S1_exactly_64_chars.csv
+printCountries S1_number_missing.csv
+printRunningAvg population.csv S2_daily_pop_zero.csv
+printRunningAvg S2_population_no_country S2_daily_no_country
+printCumulative population.csv S2_daily_pop_zero.csv
+printCumulative S2_population_no_country S2_daily_no_country
+printDailyMax population.csv S2_daily_pop_zero.csv
+printDailyMax S2_population_no_country S2_daily_no_country
+#success
+printCountries population.csv
+printCountries S1_empty_country_name.csv
+printCountries S1_negative_number.csv
+printCountries S1_leading_space_before_number.csv
+printCountries S1_letters_following_number.csv
+printCountries S1_exactly_63_chars.csv
+printRunningAvg population.csv daily_small.csv
+printRunningAvg S2_population_zero.csv S2_daily_pop_zero.csv
+printRunningAvg population.csv S2_daily_exactly_6_days.csv
+printRunningAvg population.csv S2_daily_exactly_7_days.csv
+printCumulative population.csv daily_small.csv
+printCumulative S2_population_zero.csv S2_daily_pop_zero.csv
+printDailyMax population.csv daily_small.csv
+printDailyMax S2_population_zero.csv S2_daily_pop_zero.csv
