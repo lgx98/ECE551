@@ -1,6 +1,6 @@
-Grading at 10/20/2021:18:10:18.551455
-For commit ID 1f1dabce63488784163ec50390b418262d7a19bf
-Grading at Wed Oct 20 14:10:17 EDT 2021
+Grading at 10/20/2021:18:13:02.160129
+For commit ID ac0f8117f91bd22d7089cccd1f62b812281aac81
+Grading at Wed Oct 20 14:13:00 EDT 2021
 Running your test cases
 
 Compiling story-step3
@@ -10,7 +10,10 @@ gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step3.c
 gcc -o story-step3 story-step3.o rand_story.o provided.o
 rm story-step3.o
 +-----------------------------------------------------------------------+
-Test case 1 (success): story-step3 words_naughty_integers.txt story_naughty_integers.txt
+Test case 1 (error): story-step3 words_naughty_integers.txt story_naughty_integers.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case 2 (success): story-step3 words_naughty_integers.txt story_naughty_integers.txt
 Line_1_did_not_match
 Your file did not match the expected output
 
