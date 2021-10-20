@@ -11,6 +11,7 @@
 // any functions you want your main to use
 void exit_error(char * message);
 
+// I am not familiar with macros, so I am not trying to implement a generic type array here.
 // Basic operations on category and catarray
 void category_init(category_t * cat, char * name);
 
@@ -20,6 +21,10 @@ void category_push_back(category_t * cat, char * word);
 
 void category_erase(category_t * cat, char * word);
 
+// A better design would be:
+// catarray_t * catarray_init(catarray_t * this);
+// and call malloc explicitly.
+// Sadly, I have no time to do that ;(.
 catarray_t * catarray_new(void);
 
 void catarray_delete(catarray_t * cats);
@@ -40,11 +45,13 @@ typedef enum _tokenType_t {
   POINTER    // pointer to another token
 } tokenType_t;
 
+struct _token_t;  // make compiler happy
+
 typedef union _tokenValue_t {
   char * str;
   char * name;
   size_t num;
-  void * token;
+  struct _token_t * token;
 } tokenValue_t;
 
 typedef struct _token_t {
@@ -97,7 +104,9 @@ void writeStory(FILE * f, tokenArr_t * story);
   *   void *arg);
   b. Keep track of previous blanks in static variables.
   * const char *chooseWord_numbers(char *category, catarray_t *cats) {
-  *   static tokenArr_t *prev_tokens = tokenArr_new();
+  *   static tokenArr_t *prev_tokens = NULL;
+  *   if (prev_tokens == NULL)
+  *     prev_tokens = tokenArr_new();
   *   if (cats == NULL) { // Using NULL as reset signal
   *     tokenArr_delete(prev_tokens);
   *     return NULL;
@@ -107,6 +116,8 @@ void writeStory(FILE * f, tokenArr_t * story);
 ->c. Let users stitch up their own code with whatever they want.
   * tokenArr_t *tokens = parseStory(story);
   * // manipulating tokens
+  * // nagative number blank is possible only in this way
+  * // but it takes up more memory
   * void writeStory(stdout, tokens);
  */
 #endif

@@ -5,10 +5,11 @@
 #include "rand_story.h"
 
 #include <stdio.h>
+
 /* This function prints error message and exit with failure.
  */
 void exit_error(char * message) {
-  fprintf(stderr, "Error: %s, Exitting!", message);
+  fprintf(stderr, "Error: %s, Exitting!\n", message);
   exit(EXIT_FAILURE);
 }
 
