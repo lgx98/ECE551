@@ -1,0 +1,5 @@
+noun:adversary
+noun:devil
+adjective:imaginary
+adjective:malicious
+goal:find ways to make your answer incorrect

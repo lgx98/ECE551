@@ -71,9 +71,9 @@ void category_erase(category_t * cat, char * word) {
 
   // Delete the word and move the rest forward.
   free(cat->words[i]);
-  cat->words[i] = cat->words[cat->n_words - 1];
-  //for (; i < (cat->n_words - 1); ++i)
-  //  cat->words[i] = cat->words[i + 1];
+  //cat->words[i] = cat->words[cat->n_words - 1];
+  for (; i < (cat->n_words - 1); ++i)
+    cat->words[i] = cat->words[i + 1];
 
   // Resize the pointer array.
   (cat->n_words)--;
