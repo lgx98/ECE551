@@ -2,10 +2,10 @@
 typedef Matrix<int> IntMatrix;
 
 int main(void) {
-  IntMatrix a(4,5);
+  IntMatrix a(4, 5);
   for (int i = 0; i < a.getRows(); i++) {
     for (int j = 0; j < a.getColumns(); j++) {
-      a[i][j] = i+j;
+      a[i][j] = i + j;
     }
   }
   std::cout << "a is:\n" << a << std::endl;
@@ -19,9 +19,11 @@ int main(void) {
   }
   for (int i = 0; i < b.getRows(); i++) {
     for (int j = 0; j < b.getColumns(); j++) {
-      b[i][j] += i*j;
+      b[i][j] += i * j;
     }
   }
+  //std::cout << a[4][0] << std::endl;  //###
+  //std::cout << a[0][5] << std::endl;  //###
   std::cout << "Now, b is:\n" << b << std::endl;
   if (a == b) {
     std::cout << "a and b have the same contents" << std::endl;
@@ -35,7 +37,7 @@ int main(void) {
   c = a + b;
   std::cout << "Now, c is:\n" << c << std::endl;
 
-  Matrix<std::string> s1(3,3);
+  Matrix<std::string> s1(3, 3);
   s1[0][0] = "abc";
   s1[0][1] = "def";
   s1[0][2] = "ghi";
@@ -46,7 +48,7 @@ int main(void) {
   s1[2][1] = "vwx";
   s1[2][2] = "yz_";
   std::cout << "s1 is:\n" << s1 << std::endl;
-  Matrix<std::string> s2(3,3);
+  Matrix<std::string> s2(3, 3);
   s2[0][0] = "...";
   s2[0][1] = "+++";
   s2[0][2] = "---";
@@ -57,7 +59,7 @@ int main(void) {
   s2[2][1] = "@@@";
   s2[2][2] = "!!!";
   std::cout << "s2 is:\n" << s2 << std::endl;
-  Matrix<std::string> s3(s1+s2);
+  Matrix<std::string> s3(s1 + s2);
   std::cout << "s3 is:\n" << s3 << std::endl;
   return EXIT_SUCCESS;
 }
