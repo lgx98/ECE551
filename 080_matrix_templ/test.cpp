@@ -23,7 +23,7 @@ int main(void) {
     }
   }
   //std::cout << a[4][0] << std::endl;  //###
-  //std::cout << a[0][5] << std::endl;  //###
+  std::cout << a[-1][0] << std::endl;  //###
   std::cout << "Now, b is:\n" << b << std::endl;
   if (a == b) {
     std::cout << "a and b have the same contents" << std::endl;
