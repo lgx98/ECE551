@@ -1,105 +1,56 @@
-Grading at 10/21/2021:04:24:16.825817
-For commit ID 7cf7adb272ca1a17ba3a6dd0cd40a9a58d2c167e
-Grading at Thu Oct 21 00:24:15 EDT 2021
+Grading at 10/21/2021:14:17:00.276772
+For commit ID e2d935048cee87e1bc9ada0e0db997776daff2fa
+Grading at Thu Oct 21 10:16:52 EDT 2021
 -----------------------------------------------
 testcase 1 : Testing with Matrix<int>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In constructor ‘Matrix<T>::Matrix(int, int)’:
-Matrix.cpp:12:8: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   for (auto & row : rows)
-        ^~~~
-Matrix.cpp:12:15: error: ISO C++ forbids declaration of ‘row’ with no type [-fpermissive]
-   for (auto & row : rows)
-               ^~~
-Matrix.cpp:12:21: error: range-based ‘for’ loops only available with -std=c++11 or -std=gnu++11 [-Werror]
-   for (auto & row : rows)
-                     ^~~~
-Matrix.cpp:13:9: error: request for member ‘resize’ in ‘row’, which is of non-class type ‘int’
-     row.resize(c);
-         ^~~~~~
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = int]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:3: error: invalid initialization of reference of type ‘int&’ from expression of type ‘std::vector<int, std::allocator<int> >’
-   for (auto & row : rows)
-   ^~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with Matrix<std::string>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In constructor ‘Matrix<T>::Matrix(int, int)’:
-Matrix.cpp:12:8: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   for (auto & row : rows)
-        ^~~~
-Matrix.cpp:12:15: error: ISO C++ forbids declaration of ‘row’ with no type [-fpermissive]
-   for (auto & row : rows)
-               ^~~
-Matrix.cpp:12:21: error: range-based ‘for’ loops only available with -std=c++11 or -std=gnu++11 [-Werror]
-   for (auto & row : rows)
-                     ^~~~
-Matrix.cpp:13:9: error: request for member ‘resize’ in ‘row’, which is of non-class type ‘int’
-     row.resize(c);
-         ^~~~~~
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = std::__cxx11::basic_string<char>]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:3: error: invalid initialization of reference of type ‘int&’ from expression of type ‘std::vector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char> > >’
-   for (auto & row : rows)
-   ^~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with Matrix<(a custom class we wrote)>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In constructor ‘Matrix<T>::Matrix(int, int)’:
-Matrix.cpp:12:8: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   for (auto & row : rows)
-        ^~~~
-Matrix.cpp:12:15: error: ISO C++ forbids declaration of ‘row’ with no type [-fpermissive]
-   for (auto & row : rows)
-               ^~~
-Matrix.cpp:12:21: error: range-based ‘for’ loops only available with -std=c++11 or -std=gnu++11 [-Werror]
-   for (auto & row : rows)
-                     ^~~~
-Matrix.cpp:13:9: error: request for member ‘resize’ in ‘row’, which is of non-class type ‘int’
-     row.resize(c);
-         ^~~~~~
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = Tester]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:3: error: invalid initialization of reference of type ‘int&’ from expression of type ‘std::vector<Tester, std::allocator<Tester> >’
-   for (auto & row : rows)
-   ^~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 --------------------------------------------
 Preparing to test assert fails...
 Compiling assertion failure tester...
-In file included from Matrix.h:37:0,
-                 from testAbort.cpp:1:
-Matrix.cpp: In constructor ‘Matrix<T>::Matrix(int, int)’:
-Matrix.cpp:12:8: error: ‘auto’ changes meaning in C++11; please remove it [-Werror=c++11-compat]
-   for (auto & row : rows)
-        ^~~~
-Matrix.cpp:12:15: error: ISO C++ forbids declaration of ‘row’ with no type [-fpermissive]
-   for (auto & row : rows)
-               ^~~
-Matrix.cpp:12:21: error: range-based ‘for’ loops only available with -std=c++11 or -std=gnu++11 [-Werror]
-   for (auto & row : rows)
-                     ^~~~
-Matrix.cpp:13:9: error: request for member ‘resize’ in ‘row’, which is of non-class type ‘int’
-     row.resize(c);
-         ^~~~~~
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = int]’:
-testAbort.cpp:28:27:   required from here
-Matrix.cpp:12:3: error: invalid initialization of reference of type ‘int&’ from expression of type ‘std::vector<int, std::allocator<int> >’
-   for (auto & row : rows)
-   ^~~
-cc1plus: all warnings being treated as errors
-This code did not compile. Skipping remaining tests.
+Compiled.
+-----------------------------------------------
+testcase 4 :  operator[]: row number too high
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 5 :  operator[]: row number too low
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 6 :  operator+: different number of rows
+  - Valgrind was clean (no errors, no memory leaks)
+Line_2_did_not_match
+Line_6_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 7 :  operator+: different number of columns
+  - Valgrind was clean (no errors, no memory leaks)
+Line_2_did_not_match
+Line_6_did_not_match
+Your file did not match the expected output
+Testcase failed
 
-Overall Grade: F
+Overall Grade: C
