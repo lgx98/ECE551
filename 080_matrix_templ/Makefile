@@ -1,4 +1,4 @@
-CCFLAGS=--std=gnu++98 -pedantic -Wall -Werror -ggdb3
+CCFLAGS=--std=gnu++11 -pedantic -Wall -Werror -ggdb3
 matrixTest:  test.o
 	g++ -o matrixTest $(CCFLAGS) test.o
 
