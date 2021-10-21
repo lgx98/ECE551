@@ -60,7 +60,7 @@ std::vector<T> & Matrix<T>::operator[](int index) {
 
 template<typename T>
 bool Matrix<T>::operator==(const Matrix<T> & rhs) const {
-  return (rows == rhs.rows);
+  return (numRows == rhs.numRows) && (numColumns == rhs.numColumns) && (rows == rhs.rows);
 }
 
 template<typename T>
