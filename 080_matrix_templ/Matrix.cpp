@@ -9,7 +9,7 @@ Matrix<T>::Matrix() : numRows(0), numColumns(0), rows(0) {
 template<typename T>
 Matrix<T>::Matrix(int r, int c) : numRows(r), numColumns(c) {
   rows.resize(r);
-  for (size_t i = 0; i < numRows; ++i)
+  for (ssize_t i = 0; i < numRows; ++i)
     rows[i].resize(c);
   //for (auto & row : rows)
   //  row.resize(c);
