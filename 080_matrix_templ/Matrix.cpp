@@ -87,13 +87,18 @@ std::ostream & operator<<(std::ostream & s, const std::vector<T> & vec) {
 
 template<typename T>
 std::ostream & operator<<(std::ostream & s, const Matrix<T> & rhs) {
-  s << "[ ";
-  for (ssize_t i = 0; i < rhs.getRows(); ++i) {
-    if (i != 0)
-      s << ",\n";
-    s << rhs[i];
+  if (rhs.getRows() == 0) {
+    s << "[  ]";
   }
-  s << " ]";
+  else {
+    s << "[ ";
+    for (ssize_t i = 0; i < rhs.getRows(); ++i) {
+      if (i != 0)
+        s << ",\n";
+      s << rhs[i];
+    }
+    s << " ]";
+  }
   return s;
 }
 #endif
