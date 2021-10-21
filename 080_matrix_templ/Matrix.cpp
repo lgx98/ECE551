@@ -9,7 +9,7 @@ Matrix<T>::Matrix() : numRows(0), numColumns(0), rows(0) {
 template<typename T>
 Matrix<T>::Matrix(int r, int c) : numRows(r), numColumns(c) {
   rows.resize(r);
-  for (size_t i = 0; i < rows.size(); ++i)
+  for (size_t i = 0; i < numRows; ++i)
     rows[i].resize(c);
   //for (auto & row : rows)
   //  row.resize(c);
@@ -60,16 +60,20 @@ std::vector<T> & Matrix<T>::operator[](int index) {
 
 template<typename T>
 bool Matrix<T>::operator==(const Matrix<T> & rhs) const {
-  return (numRows == rhs.numRows) && (numColumns == rhs.numColumns) && (rows == rhs.rows);
+  if (numColumns != rhs.numColumns || numRows != rhs.numRows)
+    return 0;
+  if (rows != rhs.rows)
+    return 0;
+  return 1;
 }
 
 template<typename T>
 Matrix<T> Matrix<T>::operator+(const Matrix<T> & rhs) const {
-  assert((numRows == rhs.numRows) && (numColumns == rhs.numColumns));
+  assert(numColumns == rhs.numColumns && numRows == rhs.numRows);
   Matrix ans(numRows, numColumns);
   for (ssize_t i = 0; i < numRows; ++i)
     for (ssize_t j = 0; j < numColumns; ++j)
-      ans.rows[i][j] = rows[i][j] + rhs.rows[i][j];
+      ans[i][j] = (*this)[i][j] + rhs[i][j];
   return ans;
 }
 
