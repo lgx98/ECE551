@@ -9,8 +9,10 @@ Matrix<T>::Matrix() : numRows(0), numColumns(0), rows(0) {
 template<typename T>
 Matrix<T>::Matrix(int r, int c) : numRows(r), numColumns(c) {
   rows.resize(r);
-  for (auto & row : rows)
-    row.resize(c);
+  for (size_t i = 0; i < rows.size(); ++i)
+    rows[i].resize(c);
+  //for (auto & row : rows)
+  //  row.resize(c);
 }
 
 template<typename T>
