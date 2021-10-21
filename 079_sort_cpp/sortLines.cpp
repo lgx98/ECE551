@@ -9,7 +9,7 @@ void sortLines(std::istream & is) {
   std::vector<std::string> lines;
   while (std::getline(is, line))
     lines.push_back(line);
-  if (!is) {
+  if ((!is) && (!is.eof())) {
     std::cerr << "Error occurred when reading file\n";
     exit(EXIT_FAILURE);
   }
@@ -22,9 +22,9 @@ void sortLines(std::istream & is) {
 int main(int argc, char ** argv) {
   if (argc == 1)
     sortLines(std::cin);
-  else
+  else if (argc > 1)
     for (ssize_t i = 1; i < argc; ++i) {
-      std::ifstream ifs(argv[i], std::ifstream::in);
+      std::ifstream ifs(argv[i]);
       if (!ifs.is_open()) {
         std::cerr << "Error opening file: " << argv[i] << std::endl;
         exit(EXIT_FAILURE);
