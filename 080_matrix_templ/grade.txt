@@ -1,53 +1,56 @@
-Grading at 10/21/2021:15:52:30.575101
-For commit ID 01ab7015877b509c24912e51af4a40f8617be484
-Grading at Thu Oct 21 11:52:29 EDT 2021
+Grading at 10/21/2021:15:55:28.927106
+For commit ID 408113c9e18df869fd0bb60e552b40b724dd5afb
+Grading at Thu Oct 21 11:55:20 EDT 2021
 -----------------------------------------------
 testcase 1 : Testing with Matrix<int>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = int]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:24: error: comparison between signed and unsigned integer expressions [-Werror=sign-compare]
-   for (size_t i = 0; i < numRows; ++i)
-                      ~~^~~~~~~~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with Matrix<std::string>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = std::__cxx11::basic_string<char>]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:24: error: comparison between signed and unsigned integer expressions [-Werror=sign-compare]
-   for (size_t i = 0; i < numRows; ++i)
-                      ~~^~~~~~~~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with Matrix<(a custom class we wrote)>
 ...compiling...
-In file included from Matrix.h:37:0,
-                 from test.cpp:1:
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = Tester]’:
-test.cpp:20:18:   required from here
-Matrix.cpp:12:24: error: comparison between signed and unsigned integer expressions [-Werror=sign-compare]
-   for (size_t i = 0; i < numRows; ++i)
-                      ~~^~~~~~~~~
-cc1plus: all warnings being treated as errors
-The code did not compile.  This test failed.
+The code compiled.
+  - Valgrind was clean (no errors, no memory leaks)
+Your file matched the expected output
+Testcase passed 
 --------------------------------------------
 Preparing to test assert fails...
 Compiling assertion failure tester...
-In file included from Matrix.h:37:0,
-                 from testAbort.cpp:1:
-Matrix.cpp: In instantiation of ‘Matrix<T>::Matrix(int, int) [with T = int]’:
-testAbort.cpp:28:27:   required from here
-Matrix.cpp:12:24: error: comparison between signed and unsigned integer expressions [-Werror=sign-compare]
-   for (size_t i = 0; i < numRows; ++i)
-                      ~~^~~~~~~~~
-cc1plus: all warnings being treated as errors
-This code did not compile. Skipping remaining tests.
+Compiled.
+-----------------------------------------------
+testcase 4 :  operator[]: row number too high
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 5 :  operator[]: row number too low
+  - Valgrind was clean (no errors, no memory leaks)
+Line_4_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 6 :  operator+: different number of rows
+  - Valgrind was clean (no errors, no memory leaks)
+Line_2_did_not_match
+Line_6_did_not_match
+Your file did not match the expected output
+Testcase failed
+-----------------------------------------------
+testcase 7 :  operator+: different number of columns
+  - Valgrind was clean (no errors, no memory leaks)
+Line_2_did_not_match
+Line_6_did_not_match
+Your file did not match the expected output
+Testcase failed
 
-Overall Grade: F
+Overall Grade: C
