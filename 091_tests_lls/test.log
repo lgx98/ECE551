@@ -1,0 +1,122 @@
+**Testing correct implementation**
+-----------------------------------
+
+**Testing broken implementation 1**
+-----------------------------------
+test-lls: test-lls.cpp:13: void Tester::testDefCtor(): Assertion `il.head == NULL' failed.
+./run_all.sh: line 23: 52801 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 2**
+-----------------------------------
+test-lls: test-lls.cpp:41: void Tester::testAddFront(): Assertion `dut[0] == 2' failed.
+./run_all.sh: line 23: 52823 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 3**
+-----------------------------------
+test-lls: test-lls.cpp:46: void Tester::testAddFront(): Assertion `N1->prev == N2' failed.
+./run_all.sh: line 23: 52861 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 4**
+-----------------------------------
+test-lls: test-lls.cpp:26: void Tester::testAddFront(): Assertion `dut.tail == dut.head' failed.
+./run_all.sh: line 23: 52908 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 5**
+-----------------------------------
+test-lls: test-lls.cpp:39: void Tester::testAddFront(): Assertion `dut.tail == N1' failed.
+./run_all.sh: line 23: 52962 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 6**
+-----------------------------------
+test-lls: test-lls.cpp:76: void Tester::testAddBack(): Assertion `dut[1] == 2' failed.
+./run_all.sh: line 23: 53025 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 7**
+-----------------------------------
+test-lls: test-lls.cpp:74: void Tester::testAddBack(): Assertion `dut.getSize() == 2' failed.
+./run_all.sh: line 23: 53067 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 8**
+-----------------------------------
+test-lls: test-lls.cpp:59: void Tester::testAddBack(): Assertion `dut.head != NULL' failed.
+./run_all.sh: line 23: 53109 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 9**
+-----------------------------------
+test-lls: test-lls.cpp:72: void Tester::testAddBack(): Assertion `dut.head == N1' failed.
+./run_all.sh: line 23: 53153 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 10**
+-----------------------------------
+
+**Testing broken implementation 11**
+-----------------------------------
+test-lls: test-lls.cpp:114: void Tester::testCopy(): Assertion `dut1->head != dut2->head' failed.
+./run_all.sh: line 23: 53220 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 12**
+-----------------------------------
+test-lls: test-lls.cpp:134: void Tester::testAssign(): Assertion `dut1->head != dut2->head' failed.
+./run_all.sh: line 23: 53249 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 13**
+-----------------------------------
+
+**Testing broken implementation 14**
+-----------------------------------
+
+**Testing broken implementation 15**
+-----------------------------------
+
+**Testing broken implementation 16**
+-----------------------------------
+
+**Testing broken implementation 17**
+-----------------------------------
+test-lls: test-lls.cpp:233: void Tester::testRemove(): Assertion `dut.head == NULL' failed.
+./run_all.sh: line 23: 53399 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 18**
+-----------------------------------
+test-lls: test-lls.cpp:234: void Tester::testRemove(): Assertion `dut.tail == NULL' failed.
+./run_all.sh: line 23: 53447 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 19**
+-----------------------------------
+test-lls: test-lls.cpp:221: void Tester::testRemove(): Assertion `dut.head == N3' failed.
+./run_all.sh: line 23: 53476 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 20**
+-----------------------------------
+test-lls: test-lls.cpp:228: void Tester::testRemove(): Assertion `N3->prev == NULL' failed.
+./run_all.sh: line 23: 53497 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 21**
+-----------------------------------
+test-lls: test-lls.cpp:202: void Tester::testRemove(): Assertion `dut.tail == N3' failed.
+./run_all.sh: line 23: 53516 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 22**
+-----------------------------------
+test-lls: test-lls.cpp:203: void Tester::testRemove(): Assertion `dut.getSize() == 2' failed.
+./run_all.sh: line 23: 53536 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 23**
+-----------------------------------
+test-lls: test-lls.cpp:178: void Tester::testRemove(): Assertion `dut.getSize() == 3' failed.
+./run_all.sh: line 23: 53562 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 24**
+-----------------------------------
+test-lls: test-lls.cpp:193: void Tester::testRemove(): Assertion `N3->prev == N1' failed.
+./run_all.sh: line 23: 53588 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+**Testing broken implementation 25**
+-----------------------------------
+
+**Testing broken implementation 26**
+-----------------------------------
+test-lls: test-lls.cpp:168: void Tester::testRemove(): Assertion `dut.remove(0) == false' failed.
+./run_all.sh: line 23: 53632 Aborted                 timeout -s 9 10 $vg ./test-lls
+
+You have successfully identified all broken implementations
