@@ -34,7 +34,7 @@ class LinkedList {
  public:
   LinkedList() : head(NULL), tail(NULL), size(0){};
 
-  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(rhs.size) {
+  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(0) {
     Node * s = rhs.head;
     while (s != NULL) {
       addBack(s->data);
@@ -58,8 +58,9 @@ class LinkedList {
 
   ~LinkedList() {
     while (head != NULL) {
+      Node * temp = head->next;
       delete head;
-      head = head->next;
+      head = temp;
     }
   }
 
@@ -121,7 +122,7 @@ class LinkedList {
     }
     Node * curr = head;
     for (int i = 0; i < index; i++) {
-      assert(curr == NULL);
+      assert(curr != NULL);
       curr = curr->next;
     }
     return curr->data;
@@ -150,5 +151,6 @@ class LinkedList {
     }
     return -1;
   }
+  friend class Tester;
 };
 #endif
