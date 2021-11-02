@@ -80,7 +80,7 @@ class LinkedList {
 
   void addBack(const T & item) {
     tail = new Node(item, NULL, tail);
-    if (size == 0) {
+    if (head == NULL) {
       head = tail;
     }
     else {
@@ -119,7 +119,7 @@ class LinkedList {
 
   T & operator[](int index) {
     if (index < 0 && index >= size) {
-      //throw new itemNotExistException();
+      throw new itemNotExistException();
     }
     Node * curr = head;
     for (int i = 0; i < index; i++) {
@@ -131,7 +131,7 @@ class LinkedList {
 
   const T & operator[](int index) const {
     if (index < 0 && index >= size) {
-      //throw new itemNotExistException();
+      throw new itemNotExistException();
     }
     Node * curr = head;
     for (int i = 0; i < index; i++) {
