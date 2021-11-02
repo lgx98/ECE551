@@ -3,6 +3,7 @@
 
 #include <assert.h>
 
+#define NDEBUG
 #include <cstdlib>
 #include <exception>
 
