@@ -152,6 +152,6 @@ class LinkedList {
     }
     return -1;
   }
-  friend class Tester;
+  //friend class Tester;
 };
 #endif
