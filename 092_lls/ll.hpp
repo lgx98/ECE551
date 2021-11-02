@@ -142,27 +142,14 @@ class LinkedList {
   }
 
   int find(const T & item) const {
-    int index = 0;
-    Node * p = head;
-    while (p != NULL) {
-      if (p->data == item) {
-        return index;
-      }
-      p = p->next;
-      index++;
-    }
-    return -1;
-    /*
-    int index = 0;
     Node * p = head;
     for (int i = 0; p != NULL; i++) {
       if (p->data == item) {
-        return index;
+        return i;
       }
       p = p->next;
     }
     return -1;
-*/
   }
   //friend class Tester;
 };
