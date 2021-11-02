@@ -88,7 +88,7 @@ class LinkedList {
     }
     size++;
   }
-  /*
+
   bool remove(const T & item) {
     Node ** curr = &head;
     for (int i = 0; *curr != NULL && (*curr)->data != item; i++) {
@@ -116,41 +116,6 @@ class LinkedList {
     this->size--;
     return true;
   }
-  */
-  bool remove(const T & item) {
-    if (head == NULL) {
-      return false;
-    }
-    else {
-      Node * p = head;
-      while (p != NULL) {
-        if (p->data != item) {
-          p = p->next;
-        }
-        else {
-          if (head == tail && tail == p) {
-            head = tail = NULL;
-          }
-          else if (tail == p) {
-            tail = p->prev;
-            tail->next = NULL;
-          }
-          else if (head == p) {
-            head = p->next;
-            head->prev = NULL;
-          }
-          else {
-            p->prev->next = p->next;
-            p->next->prev = p->prev;
-          }
-          delete p;
-          size--;
-          return true;
-        }
-      }
-      return false;
-    }
-  }
 
   T & operator[](int index) {
     if (index < 0 && index >= size) {
@@ -177,6 +142,13 @@ class LinkedList {
   }
 
   int find(const T & item) const {
+    for (int i = 0; i < size; i++) {
+      if ((*this)[i] == item) {
+        return i;
+      }
+    }
+    return -1;
+    /*
     int index = 0;
     Node * p = head;
     for (int i = 0; p != NULL; i++) {
@@ -186,6 +158,7 @@ class LinkedList {
       p = p->next;
     }
     return -1;
+*/
   }
   //friend class Tester;
 };
