@@ -1,0 +1,248 @@
+Grading at 11/10/2021:19:50:33.763587
+For commit ID f4db95bd2b5c2a217f64cea2bc56df384ca1caf2
+Grading at Wed Nov 10 14:50:32 EST 2021
+-----------------------------------------------
+testcase 1 : Testing with BstMap<int,int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = int]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<int, int>::tree_assign(BstMap<int, int>::Node*&, const BstMap<int, int>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, int>’ to ‘const BstMap<int, int>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<int, int>::tree_assign(BstMap<int, int>::Node*&, const BstMap<int, int>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, int>’ to ‘const BstMap<int, int>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with BstMap<int,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<int, std::__cxx11::basic_string<char> >::tree_assign(BstMap<int, std::__cxx11::basic_string<char> >::Node*&, const BstMap<int, std::__cxx11::basic_string<char> >&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, std::__cxx11::basic_string<char> >’ to ‘const BstMap<int, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<int, std::__cxx11::basic_string<char> >::tree_assign(BstMap<int, std::__cxx11::basic_string<char> >::Node*&, const BstMap<int, std::__cxx11::basic_string<char> >&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, std::__cxx11::basic_string<char> >’ to ‘const BstMap<int, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = int; V = Tester]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<int, Tester>::tree_assign(BstMap<int, Tester>::Node*&, const BstMap<int, Tester>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, Tester>’ to ‘const BstMap<int, Tester>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = int; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<int, Tester>::tree_assign(BstMap<int, Tester>::Node*&, const BstMap<int, Tester>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = int; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<int, Tester>’ to ‘const BstMap<int, Tester>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 4 : Testing with BstMap<std::string,int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, int>::tree_assign(BstMap<std::__cxx11::basic_string<char>, int>::Node*&, const BstMap<std::__cxx11::basic_string<char>, int>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, int>’ to ‘const BstMap<std::__cxx11::basic_string<char>, int>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, int>::tree_assign(BstMap<std::__cxx11::basic_string<char>, int>::Node*&, const BstMap<std::__cxx11::basic_string<char>, int>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, int>’ to ‘const BstMap<std::__cxx11::basic_string<char>, int>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 5 : Testing with BstMap<std::string,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::tree_assign(BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*&, const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >’ to ‘const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::tree_assign(BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*&, const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >’ to ‘const BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, Tester>::tree_assign(BstMap<std::__cxx11::basic_string<char>, Tester>::Node*&, const BstMap<std::__cxx11::basic_string<char>, Tester>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, Tester>’ to ‘const BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<std::__cxx11::basic_string<char>, Tester>::tree_assign(BstMap<std::__cxx11::basic_string<char>, Tester>::Node*&, const BstMap<std::__cxx11::basic_string<char>, Tester>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<std::__cxx11::basic_string<char>, Tester>’ to ‘const BstMap<std::__cxx11::basic_string<char>, Tester>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 7 : Testing with BstMap<(a custom class we wrote),int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = int]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<Tester, int>::tree_assign(BstMap<Tester, int>::Node*&, const BstMap<Tester, int>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, int>’ to ‘const BstMap<Tester, int>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = int]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<Tester, int>::tree_assign(BstMap<Tester, int>::Node*&, const BstMap<Tester, int>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = int]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, int>’ to ‘const BstMap<Tester, int>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<Tester, std::__cxx11::basic_string<char> >::tree_assign(BstMap<Tester, std::__cxx11::basic_string<char> >::Node*&, const BstMap<Tester, std::__cxx11::basic_string<char> >&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, std::__cxx11::basic_string<char> >’ to ‘const BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<Tester, std::__cxx11::basic_string<char> >::tree_assign(BstMap<Tester, std::__cxx11::basic_string<char> >::Node*&, const BstMap<Tester, std::__cxx11::basic_string<char> >&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = std::__cxx11::basic_string<char>]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, std::__cxx11::basic_string<char> >’ to ‘const BstMap<Tester, std::__cxx11::basic_string<char> >::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘BstMap<K, V>::BstMap(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
+89-tester.cpp:95:36:   required from here
+bstmap.h:109:43: error: no matching function for call to ‘BstMap<Tester, Tester>::tree_assign(BstMap<Tester, Tester>::Node*&, const BstMap<Tester, Tester>&)’
+   BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, Tester>’ to ‘const BstMap<Tester, Tester>::Node*’
+bstmap.h: In instantiation of ‘BstMap<K, V>& BstMap<K, V>::operator=(const BstMap<K, V>&) [with K = Tester; V = Tester]’:
+89-tester.cpp:131:10:   required from here
+bstmap.h:110:55: error: no matching function for call to ‘BstMap<Tester, Tester>::tree_assign(BstMap<Tester, Tester>::Node*&, const BstMap<Tester, Tester>&)’
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                            ~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+bstmap.h:27:15: note: candidate: static void BstMap<K, V>::tree_assign(BstMap<K, V>::Node*&, const BstMap<K, V>::Node*) [with K = Tester; V = Tester]
+   static void tree_assign(Node *& lhs, const Node * const rhs) {
+               ^~~~~~~~~~~
+bstmap.h:27:15: note:   no known conversion for argument 2 from ‘const BstMap<Tester, Tester>’ to ‘const BstMap<Tester, Tester>::Node*’
+bstmap.h:110:74: error: no return statement in function returning non-void [-Werror=return-type]
+   BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+                                                                          ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+
+Overall Grade: F
