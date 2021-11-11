@@ -137,8 +137,10 @@ class BstMap : public Map<K, V> {
         findnode = findnode->rNode;
       }
       K tempkey = findnode->key;
+      V tempval = findnode->val;
       remove(findnode->key);
       n_found->key = tempkey;
+      n_found->val = tempval;
       return;
     }
   }
