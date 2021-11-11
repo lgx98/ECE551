@@ -37,21 +37,22 @@ class BstMap : public Map<K, V> {
         tree_assign(lhs->lNode, NULL);
         tree_assign(lhs->rNode, NULL);
         delete lhs;
+        lhs = NULL;
       }
     }
     else {
       if (lhs == NULL) {
         // LHS is NULL, but RHS is not: make a new LHS.
         lhs = new Node(rhs->key, rhs->val);
-        tree_assign(lhs->lNode, NULL);
-        tree_assign(lhs->rNode, NULL);
+        tree_assign(lhs->lNode, rhs->lNode);
+        tree_assign(lhs->rNode, rhs->rNode);
       }
       else {
         // Both sides are not NULL: assign the k v pair directly.
         lhs->key = rhs->key;
         lhs->val = rhs->val;
-        tree_assign(lhs->lNode, NULL);
-        tree_assign(lhs->rNode, NULL);
+        tree_assign(lhs->lNode, rhs->lNode);
+        tree_assign(lhs->rNode, rhs->rNode);
       }
     }
   }
@@ -76,38 +77,26 @@ class BstMap : public Map<K, V> {
     return const_cast<Node *&>(tree_search(const_cast<Node * const &>(root), key));
   }
 
-  static void tree_removeRoot(Node *& root) {
-    if (root->lNode != NULL) {
-      // remove left node
-      Node * temp = root->lNode;
-      tree_removeRoot(root->lNode);
-      temp->lNode = root->lNode;
-      temp->rNode = root->rNode;
-      root = temp;
-    }
-    else if (root->rNode != NULL) {
-      root = root->rNode;
-    }
-    else {
-      root = NULL;
-    }
-    return;
-  }
-
-  static void tree_print(std::ostream & s, const Node * const root) {
+  static void tree_print(std::ostream & s, const Node * const root, int depth = 0) {
     if (root == NULL)
       return;
-    //s << (*root);
-    tree_print(s, root->lNode);
-    s << (*root);
-    tree_print(s, root->rNode);
+    tree_print(s, root->lNode, depth + 1);
+    for (int i = 0; i < depth; ++i) {
+      s << "        ";
+    }
+    s << (*root) << std::endl;
+    //tree_print(s, root->lNode, depth + 1);
+    tree_print(s, root->rNode, depth + 1);
     return;
   }
 
  public:
   BstMap() : root(NULL) {}
-  BstMap(const BstMap & rhs) { tree_assign(this->root, rhs); }
-  BstMap & operator=(const BstMap & rhs) { tree_assign(this->root, rhs); }
+  BstMap(const BstMap & rhs) : root(NULL) { tree_assign(this->root, rhs.root); }
+  BstMap & operator=(const BstMap & rhs) {
+    tree_assign(this->root, rhs.root);
+    return *this;
+  }
   ~BstMap() { tree_assign(this->root, NULL); }
 
   void add(const K & key, const V & value) {
@@ -132,10 +121,26 @@ class BstMap : public Map<K, V> {
     if (n_found == NULL) {
       throw std::invalid_argument("key not find\n");
     }
-    Node * n_remove = n_found;
-    tree_removeRoot(n_found);
-    delete n_remove;
-    return;
+    if (n_found->lNode == NULL) {
+      Node * temp = n_found->rNode;
+      delete n_found;
+      n_found = temp;
+    }
+    else if (n_found->rNode == NULL) {
+      Node * temp = n_found->lNode;
+      delete n_found;
+      n_found = temp;
+    }
+    else {
+      Node * findnode = n_found->lNode;
+      while (findnode->rNode != NULL) {
+        findnode = findnode->rNode;
+      }
+      K tempkey = findnode->key;
+      remove(findnode->key);
+      n_found->key = tempkey;
+      return;
+    }
   }
   friend std::ostream & operator<<(std::ostream & s, const BstMap & rhs) {
     tree_print(s, rhs.root);
