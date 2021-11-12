@@ -98,6 +98,6 @@ void ChoicePage::print(std::ostream & s) const {
   s << "What would you like to do?" << std::endl;
   s << std::endl;
   for (size_t i = 0; i < this->choiceText.size(); ++i) {
-    s << ' ' << i << ". " << this->choiceText[i] << std::endl;
+    s << ' ' << i + 1 << ". " << this->choiceText[i] << std::endl;
   }
 }
