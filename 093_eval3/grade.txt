@@ -1,6 +1,6 @@
-Grading at 11/12/2021:01:09:18.810667
-For commit ID d4ca6ee388dde80670cc6ed9a55e39979f444f95
-Grading at Thu Nov 11 20:09:08 EST 2021
+Grading at 11/12/2021:01:11:47.979959
+For commit ID 61751045cad422e0a7222767f614efa0d0487d3a
+Grading at Thu Nov 11 20:11:37 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -12,9 +12,7 @@ rm cyoa-step1.o
 Compiled for step 1
 +-----------------------------------------------------------------------+
 Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
-20d19
-< 
-23,25c22,24
+22,24c22,24
 <  0. Choose the magic whistle.
 <  1. Choose the magic shoes.
 <  2. Choose the magic toaster.
@@ -25,9 +23,7 @@ Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
-20d19
-< 
-23,25c22,24
+22,24c22,24
 <  0. Go to Denevieve for help.
 <  1. Go to Grew for help.
 <  2. Go alone.
@@ -38,9 +34,7 @@ Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
-20d19
-< 
-23,25c22,24
+22,24c22,24
 <  0. Go to Denevieve for help.
 <  1. Go to Grew for help.
 <  2. Go alone.
@@ -51,9 +45,7 @@ Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
-24d23
-< 
-27,29c26,28
+26,28c26,28
 <  0. Go to Denevieve for help.
 <  1. Go to Grew for help.
 <  2. Go alone.
@@ -64,9 +56,7 @@ Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
-16d15
-< 
-19,21c18,20
+18,20c18,20
 <  0. Silent Night, accompanied by raven calls
 <  1. Angels We Have Heard on High, accompanied by roosters crowing
 <  2. Bohemian Rhapsody, accompanied by the magestic call of a bald eagle
@@ -77,9 +67,7 @@ Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
-11d10
-< 
-14,16c13,15
+13,15c13,15
 <  0. Try to sneak past the sleeping dragon
 <  1. Leave the dragon's cave and go home
 <  2. Stab the dragon in the neck
@@ -90,9 +78,7 @@ Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
-6d5
-< 
-9,10c8,9
+8,9c8,9
 <  0. Pick up the ruby
 <  1. Pass the ruby to explore the rest of the hoard
 ---
@@ -101,19 +87,13 @@ Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
 Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
-4d3
-< 
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 9 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page4.txt
-4d3
-< 
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
-7d6
-< 
-Your file did not match the expected output
+Your file matched the expected output
 Step 1: Failed test cases as above
 
 Compiling cyoa-step2
