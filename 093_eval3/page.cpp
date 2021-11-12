@@ -64,7 +64,6 @@ Page * parsePage(std::istream & s) {
 
 void EndPage::print(std::ostream & s) const {
   s << this->text << std::endl;
-  s << std::endl;
   if (this->isWin) {
     s << "Congratulations! You have won. Hooray!" << std::endl;
   }
@@ -96,7 +95,6 @@ void ChoicePage::addChoice(std::string const & line) {
 
 void ChoicePage::print(std::ostream & s) const {
   s << this->text << std::endl;
-  s << std::endl;
   s << "What would you like to do?" << std::endl;
   s << std::endl;
   for (size_t i = 0; i < this->choiceText.size(); ++i) {
