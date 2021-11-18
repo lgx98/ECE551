@@ -1,13 +1,14 @@
-Grading at 11/12/2021:01:13:08.482083
-For commit ID f31026453a498c0eae989db9f6d9b123d564cbc4
-Grading at Thu Nov 11 20:12:58 EST 2021
+Grading at 11/18/2021:00:11:23.987717
+For commit ID defd998ff896c60502c0ebe419f78804adc2304c
+Grading at Wed Nov 17 19:11:07 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o story.o
 g++  -c page.cpp
+g++  -c story.cpp
 g++  -c cyoa-step1.cpp
-g++ -o cyoa-step1 cyoa-step1.o page.o
+g++ -o cyoa-step1 cyoa-step1.o page.o story.o
 rm cyoa-step1.o
 Compiled for step 1
 +-----------------------------------------------------------------------+
@@ -43,17 +44,52 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o
-The code did not compile!
-Did not compile for step 2
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o story.o
+g++  -c page.cpp
+g++  -c story.cpp
+g++  -c cyoa-step2.cpp
+g++ -o cyoa-step2 cyoa-step2.o page.o story.o
+rm cyoa-step2.o
+Compiled for step 2
+Input to story is
+1
+1
+1
+
++-----------------------------------------------------------------------+
+Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Your file matched the expected output
+Input to story is
+3
+2
+
++-----------------------------------------------------------------------+
+Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
+Your file matched the expected output
+Input to story is
+1
+2
+2
+1
+
++-----------------------------------------------------------------------+
+Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+Your file matched the expected output
+Input to story is
+3
+
++-----------------------------------------------------------------------+
+Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
+Your file matched the expected output
+Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o story.o
 The code did not compile!
 Did not compile for step 3
 
 Compiling cyoa-step4
-rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o
+rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o page.o story.o
 The code did not compile!
 Did not compile for step 4
 Running your test cases
