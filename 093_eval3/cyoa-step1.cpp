@@ -11,9 +11,9 @@ int main(int argc, char ** argv) {
   if (!f) {
     std::cerr << "Error Opening File: " << argv[1] << std::endl;
   }
-  Page * p = parsePage(f);
-  std::cout << *p;
-  delete p;
+  Page p(f);
+  Page q(p);
   f.close();
+  std::cout << q;
   return EXIT_SUCCESS;
 }
