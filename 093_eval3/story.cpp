@@ -1,7 +1,9 @@
 #include "story.hpp"
 
+#include <algorithm>
 #include <cstdlib>
 #include <fstream>
+#include <queue>
 #include <sstream>
 
 std::string Story::getFileName(std::string dir, int index) {
@@ -91,4 +93,53 @@ void Story::play(int index) {
     std::cout << "That is not a valid choice, please try again" << std::endl;
   }
   play(choiceIndexes[userChoice - 1]);
+}
+
+std::vector<int> Story::getDepth() {
+  std::vector<int> depth(this->pages.size(), 0);
+  std::queue<int> toVisit({1});
+  std::vector<bool> visited(this->pages.size(), false);
+  while (!toVisit.empty()) {
+    int currNode = toVisit.front();
+    toVisit.pop();
+    std::vector<int> neigh = this->pages[currNode - 1].getNeighbors();
+    for (std::vector<int>::iterator it = neigh.begin();
+         (it != neigh.end()) && (!visited[*it - 1]);
+         ++it) {
+      depth[*it - 1] = depth[currNode - 1] + 1;
+      toVisit.push(*it);
+      visited[*it - 1] = true;
+    }
+  }
+  return depth;
+}
+
+std::vector<std::pair<int, int> > Story::getWinPath() {
+  std::vector<std::pair<int, int> > visitedFrom(this->pages.size(),
+                                                std::make_pair(-1, 0));
+  std::queue<int> toVisit({1});
+  std::vector<bool> visited(this->pages.size(), false);
+  int currNode = 1;
+  while (this->pages[currNode - 1].getType() != Page::WIN) {
+    if (toVisit.empty()) {
+      return std::vector<std::pair<int, int> >();
+    }
+    currNode = toVisit.front();
+    toVisit.pop();
+    std::vector<int> neigh = this->pages[currNode - 1].getNeighbors();
+    for (int i = 0; (i < (int)neigh.size()) && (!visited[neigh[i] - 1]); ++i) {
+      visitedFrom[neigh[i] - 1] = std::make_pair(currNode, i + 1);
+      toVisit.push(neigh[i]);
+      visited[neigh[i] - 1] = true;
+    }
+  }
+  int winNode = currNode;
+  std::vector<std::pair<int, int> > path;
+  for (; visitedFrom[currNode - 1].first != -1;
+       currNode = visitedFrom[currNode - 1].first) {
+    path.push_back(visitedFrom[currNode - 1]);
+  }
+  std::reverse(path.begin(), path.end());
+  path.push_back(std::make_pair(winNode, 0));
+  return path;
 }
