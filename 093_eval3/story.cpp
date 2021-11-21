@@ -99,6 +99,7 @@ std::vector<int> Story::getDepth() {
   std::vector<int> depth(this->pages.size(), 0);
   std::queue<int> toVisit({1});
   std::vector<bool> visited(this->pages.size(), false);
+  visited[0] = true;
   while (!toVisit.empty()) {
     int currNode = toVisit.front();
     toVisit.pop();
@@ -119,6 +120,7 @@ std::vector<std::pair<int, int> > Story::getWinPath() {
                                                 std::make_pair(-1, 0));
   std::queue<int> toVisit({1});
   std::vector<bool> visited(this->pages.size(), false);
+  visited[0] = true;
   int currNode = 1;
   while (this->pages[currNode - 1].getType() != Page::WIN) {
     if (toVisit.empty()) {
