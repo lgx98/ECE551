@@ -10,17 +10,20 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
   Story s(argv[1]);
-  std::vector<std::pair<int, int> > path = s.getWinPath();
-  for (std::vector<std::pair<int, int> >::iterator it = path.begin(); it != path.end();
-       ++it) {
-    if (it->second != 0) {
-      std::cout << it->first << "(" << it->second << "),";
-    }
-    else {
-      std::cout << it->first << "(win)" << std::endl;
+  std::vector<std::vector<std::pair<int, int> > > paths = s.getWinPaths();
+  for (std::vector<std::vector<std::pair<int, int> > >::iterator path = paths.begin();
+       path != paths.end();
+       ++path) {
+    for (std::vector<std::pair<int, int> >::iterator it = path->begin();
+         it != path->end();
+         ++it) {
+      if (it->second != 0) {
+        std::cout << it->first << "(" << it->second << "),";
+      }
+      else {
+        std::cout << it->first << "(win)" << std::endl;
+      }
     }
   }
-  std::cout << argv[0] << std::endl;
-  std::cout << argv[1] << std::endl;
   return EXIT_SUCCESS;
 }

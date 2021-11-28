@@ -115,33 +115,47 @@ std::vector<int> Story::getDepth() {
   return depth;
 }
 
-std::vector<std::pair<int, int> > Story::getWinPath() {
-  std::vector<std::pair<int, int> > visitedFrom(this->pages.size(),
-                                                std::make_pair(-1, 0));
-  std::queue<int> toVisit({1});
+std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
+  /* pair.first: which node is this (counting from 1)
+     pair.second: which choice led to this node (counting from 1)
+   */
+  std::vector<std::vector<std::pair<int, int> > > winPaths;
+  std::vector<std::pair<int, int> > toVisit;  // used as a stack
+  toVisit.push_back(std::make_pair(1, 0));
+  std::vector<std::pair<int, int> > visitedPath;
+  visitedPath.reserve(this->pages.size());
   std::vector<bool> visited(this->pages.size(), false);
   visited[0] = true;
-  int currNode = 1;
-  while (this->pages[currNode - 1].getType() != Page::WIN) {
-    if (toVisit.empty()) {
-      return std::vector<std::pair<int, int> >();
+
+  while (toVisit.size() > 0) {
+    std::pair<int, int> currNode = *toVisit.rbegin();
+    toVisit.pop_back();
+    visitedPath.push_back(currNode);
+    visited[currNode.first - 1] = true;
+
+    if (this->pages[currNode.first - 1].getType() == Page::WIN) {
+      winPaths.push_back(visitedPath);
+      std::vector<std::pair<int, int> > & currPath = *winPaths.rbegin();
+      for (int i = 0; i < (int)currPath.size() - 1; ++i) {
+        currPath[i].second = currPath[i + 1].second;
+      }
+      currPath.rbegin()->second = 0;
     }
-    currNode = toVisit.front();
-    toVisit.pop();
-    std::vector<int> neigh = this->pages[currNode - 1].getNeighbors();
-    for (int i = 0; (i < (int)neigh.size()) && (!visited[neigh[i] - 1]); ++i) {
-      visitedFrom[neigh[i] - 1] = std::make_pair(currNode, i + 1);
-      toVisit.push(neigh[i]);
-      visited[neigh[i] - 1] = true;
+    else {
+      std::vector<int> neigh = this->pages[currNode.first - 1].getNeighbors();
+      bool isDeadEnd = true;
+      for (int i = (int)neigh.size() - 1; i >= 0; --i) {
+        if (!visited[neigh[i] - 1]) {
+          toVisit.push_back(std::make_pair(neigh[i], i + 1));
+          isDeadEnd = false;
+        }
+      }
+      if (!isDeadEnd) {
+        continue;
+      }
     }
+    visited[currNode.first - 1] = false;
+    visitedPath.pop_back();
   }
-  int winNode = currNode;
-  std::vector<std::pair<int, int> > path;
-  for (; visitedFrom[currNode - 1].first != -1;
-       currNode = visitedFrom[currNode - 1].first) {
-    path.push_back(visitedFrom[currNode - 1]);
-  }
-  std::reverse(path.begin(), path.end());
-  path.push_back(std::make_pair(winNode, 0));
-  return path;
+  return winPaths;
 }

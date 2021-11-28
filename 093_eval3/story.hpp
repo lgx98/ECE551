@@ -18,6 +18,6 @@ class Story {
   Story(const std::string & dir);
   void play(int index = 1);
   std::vector<int> getDepth();
-  std::vector<std::pair<int, int> > getWinPath();
+  std::vector<std::vector<std::pair<int, int> > > getWinPaths();
 };
 #endif
