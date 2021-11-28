@@ -12,7 +12,7 @@ std::string Story::getFileName(std::string dir, int index) {
   return ss.str();
 }
 
-Story::Story(const std::string &dir) {
+Story::Story(const std::string & dir) {
   int i = 1;
   std::string fileName = getFileName(dir, i);
   std::ifstream ifs(fileName.c_str(), std::ifstream::in);
@@ -76,10 +76,9 @@ bool Story::haveWinAndLose() {
 }
 
 void Story::play(int index) {
-  Page &currentPage = this->pages[index - 1];
+  Page & currentPage = this->pages[index - 1];
   std::cout << currentPage;
-  if (currentPage.getType() == Page::WIN ||
-      currentPage.getType() == Page::LOSE) {
+  if (currentPage.getType() == Page::WIN || currentPage.getType() == Page::LOSE) {
     return;
   }
   std::vector<int> choiceIndexes = currentPage.getNeighbors();
@@ -106,7 +105,8 @@ std::vector<int> Story::getDepth() {
     toVisit.pop();
     std::vector<int> neigh = this->pages[currNode - 1].getNeighbors();
     for (std::vector<int>::iterator it = neigh.begin();
-         (it != neigh.end()) && (!visited[*it - 1]); ++it) {
+         (it != neigh.end()) && (!visited[*it - 1]);
+         ++it) {
       depth[*it - 1] = depth[currNode - 1] + 1;
       toVisit.push(*it);
       visited[*it - 1] = true;
@@ -115,14 +115,14 @@ std::vector<int> Story::getDepth() {
   return depth;
 }
 
-std::vector<std::vector<std::pair<int, int>>> Story::getWinPaths() {
+std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
   /* pair.first: which node is this (counting from 1)
      pair.second: which choice led to this node (counting from 1)
    */
-  std::vector<std::vector<std::pair<int, int>>> winPaths;
-  std::vector<std::pair<int, int>> toVisit; // used as a stack
+  std::vector<std::vector<std::pair<int, int> > > winPaths;
+  std::vector<std::pair<int, int> > toVisit;  // used as a stack
   toVisit.push_back(std::make_pair(1, 0));
-  std::vector<std::pair<int, int>> visitedPath;
+  std::vector<std::pair<int, int> > visitedPath;
   visitedPath.reserve(this->pages.size());
   std::vector<bool> visited(this->pages.size(), false);
   visited[0] = true;
@@ -137,6 +137,7 @@ std::vector<std::vector<std::pair<int, int>>> Story::getWinPaths() {
     visitedPath.push_back(currNode);
     visited[currNode.first - 1] = true;
     // print debug message
+    /*
     std::cout << "==========" << std::endl;
     std::cout << "Node Index: " << currNode.first << std::endl;
     std::cout << "Node Type:  ";
@@ -160,15 +161,16 @@ std::vector<std::vector<std::pair<int, int>>> Story::getWinPaths() {
       break;
     };
     std::cout << std::endl;
-
+    */
     if (this->pages[currNode.first - 1].getType() == Page::WIN) {
       winPaths.push_back(visitedPath);
-      std::vector<std::pair<int, int>> &currPath = *winPaths.rbegin();
+      std::vector<std::pair<int, int> > & currPath = *winPaths.rbegin();
       for (int i = 0; i < (int)currPath.size() - 1; ++i) {
         currPath[i].second = currPath[i + 1].second;
       }
       currPath.rbegin()->second = 0;
-    } else {
+    }
+    else {
       std::vector<int> neigh = this->pages[currNode.first - 1].getNeighbors();
       bool isDeadEnd = true;
       toVisit.push_back(std::make_pair(0, 0));
@@ -180,7 +182,8 @@ std::vector<std::vector<std::pair<int, int>>> Story::getWinPaths() {
       }
       if (!isDeadEnd) {
         continue;
-      } else{
+      }
+      else {
         toVisit.pop_back();
       }
     }
