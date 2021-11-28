@@ -1,6 +1,6 @@
-Grading at 11/28/2021:21:21:46.333163
-For commit ID 11219cd23d6cd13b044485a34a6e415e380f3e52
-Grading at Sun Nov 28 16:21:22 EST 2021
+Grading at 11/28/2021:21:23:53.553833
+For commit ID 925aef171574f2ba7d162af976a2f740a66bafa6
+Grading at Sun Nov 28 16:23:29 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -107,116 +107,11 @@ g++ -o cyoa-step4 cyoa-step4.o page.o story.o
 rm cyoa-step4.o
 +-----------------------------------------------------------------------+
 Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
-1,16d0
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-19,55d2
-< Neighbors: 11 12 7
-< Neighbors: 14 13 10
-< Neighbors: 2 3 4
-< Neighbors: 5 6 7
-< Neighbors: 8 9 7
-< Node Index: 1
-< Node Index: 10
-< Node Index: 11
-< Node Index: 12
-< Node Index: 13
-< Node Index: 14
-< Node Index: 2
-< Node Index: 3
-< Node Index: 4
-< Node Index: 5
-< Node Index: 6
-< Node Index: 7
-< Node Index: 7
-< Node Index: 7
-< Node Index: 8
-< Node Index: 9
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  WIN
-< Node Type:  WIN
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
-1,14d0
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-< ==========
-18,51d3
-< Neighbors: 11 4
-< Neighbors: 12 10
-< Neighbors: 2 3 4
-< Neighbors: 5 6
-< Neighbors: 7 8
-< Neighbors: 9 4
-< Node Index: 1
-< Node Index: 10
-< Node Index: 11
-< Node Index: 12
-< Node Index: 2
-< Node Index: 3
-< Node Index: 4
-< Node Index: 4
-< Node Index: 4
-< Node Index: 5
-< Node Index: 6
-< Node Index: 7
-< Node Index: 8
-< Node Index: 9
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  CHOICE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  LOSE
-< Node Type:  WIN
-< Node Type:  WIN
-< Node Type:  WIN
-Your file did not match the expected output
-Step 4: Failed test cases as above
+Your file matched the expected output
+Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
 Cannot proceed without testcases.txt
 
