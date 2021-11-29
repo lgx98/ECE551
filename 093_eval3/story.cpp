@@ -164,6 +164,7 @@ std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
     std::pair<int, int> currNode = *toVisit.rbegin();
     toVisit.pop_back();
     if (currNode.first == 0) {  // backtrack
+      visited[visitedPath.rbegin()->first - 1] = false;
       visitedPath.pop_back();
       continue;
     }
@@ -199,11 +200,11 @@ std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
         continue;
       }
       else {
-        //toVisit.pop_back();
+        toVisit.pop_back();
       }
     }
-    //visited[currNode.first - 1] = false;
-    //visitedPath.pop_back();
+    visited[currNode.first - 1] = false;
+    visitedPath.pop_back();
   }
   return winPaths;
 }
