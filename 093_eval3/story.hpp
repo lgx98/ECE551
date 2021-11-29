@@ -6,6 +6,7 @@
 
 #include "page.hpp"
 
+// self-explanatory, the class for story
 class Story {
  private:
   std::vector<Page> pages;

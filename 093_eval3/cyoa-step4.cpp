@@ -11,8 +11,8 @@ int main(int argc, char ** argv) {
   }
   Story s(argv[1]);
   std::vector<std::vector<std::pair<int, int> > > paths = s.getWinPaths();
-  if(paths.begin()==paths.end()){
-    std::cout<<"This story is unwinnable!"<<std::endl;
+  if (paths.begin() == paths.end()) {
+    std::cout << "This story is unwinnable!" << std::endl;
   }
   for (std::vector<std::vector<std::pair<int, int> > >::iterator path = paths.begin();
        path != paths.end();
