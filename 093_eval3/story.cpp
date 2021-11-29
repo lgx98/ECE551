@@ -171,8 +171,8 @@ std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
     // "visit" the node
     visitedPath.push_back(currNode);
     visited[currNode.first - 1] = true;
+    // save winning path
     if (this->pages[currNode.first - 1].getType() == Page::WIN) {
-      // a winning path
       winPaths.push_back(visitedPath);
       std::vector<std::pair<int, int> > & currPath = *winPaths.rbegin();
       /* convert pair.second
@@ -183,29 +183,16 @@ std::vector<std::vector<std::pair<int, int> > > Story::getWinPaths() {
         currPath[i].second = currPath[i + 1].second;
       }
       currPath.rbegin()->second = 0;
-      toVisit.push_back(std::make_pair(0, 0));
     }
-    else {
-      // add neighbors to toVisit, if there is any
-      std::vector<int> neigh = this->pages[currNode.first - 1].getNeighbors();
-      bool isDeadEnd = true;
-      // indicator for entering a deeper node
-      toVisit.push_back(std::make_pair(0, 0));
-      for (int i = (int)neigh.size() - 1; i >= 0; --i) {
-        if (!visited[neigh[i] - 1]) {
-          toVisit.push_back(std::make_pair(neigh[i], i + 1));
-          isDeadEnd = false;
-        }
-      }
-      if (!isDeadEnd) {
-        continue;
-      }
-      else {
-        //toVisit.pop_back();
+    // indicator for entering a deeper node
+    toVisit.push_back(std::make_pair(0, 0));
+    // add all unvisited neighbors to toVisit
+    std::vector<int> neigh = this->pages[currNode.first - 1].getNeighbors();
+    for (int i = (int)neigh.size() - 1; i >= 0; --i) {
+      if (!visited[neigh[i] - 1]) {
+        toVisit.push_back(std::make_pair(neigh[i], i + 1));
       }
     }
-    //visited[currNode.first - 1] = false;
-    //visitedPath.pop_back();
   }
   return winPaths;
 }
