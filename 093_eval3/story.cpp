@@ -120,12 +120,21 @@ std::vector<int> Story::getDepth() {
     int currNode = toVisit.front();
     toVisit.pop();
     std::vector<int> neigh = this->pages[currNode - 1].getNeighbors();
+    /* This did not work somehow
     for (std::vector<int>::iterator it = neigh.begin();
          (it != neigh.end()) && (!visited[*it - 1]);
          ++it) {
       depth[*it - 1] = depth[currNode - 1] + 1;
       toVisit.push(*it);
       visited[*it - 1] = true;
+    }
+    */
+    for (std::vector<int>::iterator it = neigh.begin(); it != neigh.end(); ++it) {
+      if (!visited[*it - 1]) {
+        depth[*it - 1] = depth[currNode - 1] + 1;
+        toVisit.push(*it);
+        visited[*it - 1] = true;
+      }
     }
   }
   return depth;
